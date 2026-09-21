@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:global(:root) {
+  --alumni-heading-font-size: clamp(1.8rem, 2rem, 2.5rem);
+  --alumni-subtext-font-size: clamp(0.95rem, 1.5rem, 1.68rem);
+  --alumni-quote-title-size: clamp(1.15rem, 1.75rem, 1.85rem);
+  /* --alumni-quote-body-size: clamp(0.95rem, 1.2vw, 1.08rem); */
+  --alumni-tagline-size: clamp(1rem, 1.25rem, 1.35rem);
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 5rem 0;
+  font-family: 'Outfit', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  filter: brightness(0.65);
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #0721a0aa 0%, rgba(7, 33, 160, 0.597) 100%);
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--global-padding-x);
+  box-sizing: border-box;
+}
+
+/* WHITE ALUMNI CARD */
+.alumniCard {
+  background: #ffffff;
+  border-radius: 1.75rem;
+  padding: 3.5rem 4rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  /* max-width: 1380px; */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* CARD TOP HEADER ROW */
+.cardHeaderRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.headerLeft {
+  flex: 1;
+  /* max-width: 600px; */
+}
+
+.heading {
+  font-size: var(--alumni-heading-font-size);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0 0 0.6rem 0;
+  letter-spacing: -0.01em;
+}
+
+.subtext {
+  font-size: var(--alumni-subtext-font-size);
+  color: #626262;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+  max-width: 100%;
+}
+
+.headerRight {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+}
+
+.taglineText {
+  font-size: var(--alumni-quote-title-size);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.goldText {
+  color: #D88E0F;
+  font-weight: 500;
+}
+
+.blueText {
+  color: #0721A0;
+  font-weight: 400;
+}
+
+/* QUOTE BLOCK */
+.quoteBlock {
+  margin-top: 2.75rem;
+}
+
+.quoteTitle {
+  font-size: var(--alumni-quote-title-size);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.01em;
+}
+
+.quoteBody {
+  font-size: var(--alumni-subtext-font-size);
+  color: #626262;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 400;
+  /* max-width: 900px; */
+}
+
+/* AUTHOR ROW */
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #e2e8f0;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: var(--alumni-subtext-font-size);
+  font-weight: 400;
+  color: #333333;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.authorYear {
+  font-size: var(--alumni-tagline-size);
+  color: #626262;
+  margin: 0.2rem 0 0 0;
+  font-weight: 400;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 992px) {
+  :global(:root) {
+    --alumni-heading-font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+    --alumni-subtext-font-size: clamp(0.9rem, 2vw, 1.15rem);
+    --alumni-quote-title-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    --alumni-tagline-size: clamp(0.875rem, 1.8vw, 1.05rem);
+  }
+
+  .alumniCard {
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  .cardHeaderRow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .headerLeft {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .headerRight {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .taglineText {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+    display: block;
+  }
+
+  .subtext br {
+    display: none;
+  }
+
+  .avatar {
+    width: 54px;
+    height: 54px;
+  }
+
+  .subtext {
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .quoteBlock {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .quoteTitle,
+  .quoteBody {
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .authorRow {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .authorDetails {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --alumni-heading-font-size: clamp(1.25rem, 4vw, 1.65rem);
+    --alumni-subtext-font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+    --alumni-quote-title-size: clamp(1rem, 3vw, 1.25rem);
+    --alumni-tagline-size: clamp(0.825rem, 2.2vw, 0.98rem);
+  }
+}
+
+@media (max-width: 576px) {
+  :global(:root) {
+    --alumni-heading-font-size: clamp(1.15rem, 1.375rem, 1.45rem);
+    --alumni-subtext-font-size: clamp(0.825rem, 1.125rem, 1.25rem);
+    --alumni-quote-title-size: clamp(0.95rem, 1.375rem, 1.45rem);
+    --alumni-tagline-size: clamp(0.8rem, 1.25rem, 1.5rem);
+  }
+
+  .alumniCard {
+    padding: 2rem 1.25rem;
+    border-radius: 1.25rem;
+    text-align: center;
+  }
+
+  .cardHeaderRow {
+    align-items: center;
+    text-align: center;
+  }
+
+  .headerRight {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .taglineText {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  .quoteBlock {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .authorRow {
+    margin-top: 1.75rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .authorDetails {
+    align-items: center;
+    text-align: center;
+  }
+}

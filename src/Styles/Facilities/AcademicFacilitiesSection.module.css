@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:global(:root) {
+  --facility-section-badge-size: clamp(0.75rem, 0.875rem, 1.85rem);
+  --facility-section-title-size: clamp(1.2rem, 1.375rem, 2.5rem);
+  --facility-section-desc-size: clamp(0.95rem, 1.375rem, 1.45rem);
+  --facility-card-title-size: clamp(1.4rem, 1.75rem, 1.85rem);
+  --facility-card-p-size: clamp(0.9rem, 1.25rem, 1.3rem);
+  --facility-highlight-desc-size: clamp(0.82rem, 1rem, 1.88rem);
+  --facility-lab-badge-size: clamp(0.75rem, 0.875rem, 0.985rem);
+  --facility-lab-title-size: clamp(1.5rem, 1.75rem, 1.95rem);
+  --facility-lab-desc-size: clamp(0.92rem, 1.25rem, 1.42rem);
+  --facility-banner-tag-size: clamp(0.85rem, 1rem, 1.1rem);
+}
+
+.academicSectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  font-family: 'Outfit', sans-serif;
+  width: 100%;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: linear-gradient(270deg, #EFF1FC 0%, #FBF2EA 100%);
+  color: #062075;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-size: var(--facility-section-badge-size);
+  font-weight: 400;
+  letter-spacing: 0.6px;
+}
+
+.mainSectionTitle {
+  font-size: var(--facility-section-title-size);
+  font-weight: 500;
+  color: #333333;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.sectionDesc {
+  font-size: var(--facility-section-desc-size);
+  line-height: 1.35;
+  max-width: 60rem;
+  color: #626262;
+  margin: 0;
+}
+
+/* CARDS STACK WRAPPER FOR OVERLAPPING ANIMATION */
+.cardsStackWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CARD 1: CENTRAL LIBRARY CARD (STICKY PINS AT TOP: 140px) */
+.cardOne {
+  position: sticky;
+  top: 150px;
+  scroll-margin-top: 150px;
+  z-index: 1;
+  background: #FFFFFF;
+  border-radius: 1.5rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.85rem 2.5rem;
+  box-sizing: border-box;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.15rem;
+  min-height: auto;
+  overflow: hidden;
+}
+
+.libraryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.libraryMediaWrapper {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  height: 440px;
+}
+
+.libraryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.libraryBannerTag {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: linear-gradient(90deg, #D88E0F 0%, #C30065 100%);
+  color: #FFFFFF;
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  font-size: var(--facility-banner-tag-size);
+  font-weight: 400;
+  text-align: left;
+  box-shadow: 0 6px 16px rgba(184, 19, 101, 0.35);
+  letter-spacing: 0.3px;
+}
+
+.libraryBannerTag span {
+  font-weight: 600;
+}
+
+.libraryInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cardTitle {
+  font-size: var(--facility-card-title-size);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.cardParagraph {
+  font-size: var(--facility-card-p-size);
+  line-height: 1.35;
+  color: #626262;
+  margin: 0;
+}
+
+.highlightsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.875rem 1.125rem;
+  border-radius: 0.875rem;
+}
+
+.highlightIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #FBF2EA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D88E0F;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.highlightIcon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.badgeIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.highlightText h4 {
+  margin: 0 0 3px;
+  font-size: var(--facility-card-p-size);
+  font-weight: 500;
+  color: #333333;
+}
+
+.highlightText p {
+  margin: 0;
+  font-size: var(--facility-highlight-desc-size);
+  color: #626262;
+  line-height: 1.45;
+}
+
+/* CARD 2: LABORATORIES CARD (SLIDES OVER AND FULLY COVERS CARD 1 WHILE SCROLLING) */
+.cardTwo {
+  position: sticky;
+  top: 150px;
+  scroll-margin-top: 150px;
+  z-index: 2;
+  background: #FFFFFF;
+  border-radius: 1.5rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0px -25px 60px rgba(0, 0, 0, 0.18), 0px 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.85rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.15rem;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: auto;
+  overflow: hidden;
+}
+
+.labHeaderCenter {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.labSectionDesc {
+  font-size: var(--facility-lab-desc-size);
+  line-height: 1.35;
+  color: #626262;
+  text-align: center;
+  margin: 0;
+  max-width: 58rem;
+}
+
+.labsImagesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.labPhotoCard {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  height: 360px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.labImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .libraryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .libraryMediaWrapper {
+    height: 360px;
+  }
+
+  .cardOne {
+    top: 140px;
+    margin-bottom: 2.5rem;
+    min-height: auto;
+  }
+
+  .cardTwo {
+    top: 140px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --facility-section-badge-size: clamp(0.75rem, 0.875rem, 0.95rem);
+    --facility-section-title-size: clamp(1.35rem, 1.375rem, 1.85rem);
+    --facility-section-desc-size: clamp(0.875rem, 1.125rem, 1.35rem);
+    --facility-card-title-size: clamp(1.25rem, 1.375rem, 1.55rem);
+    --facility-card-p-size: clamp(0.85rem, 1.125rem, 1.3rem);
+    --facility-highlight-desc-size: clamp(0.8rem, 1rem, 1.3rem);
+    --facility-lab-badge-size: clamp(0.75rem, 1.25rem, 1.5rem);
+    --facility-lab-title-size: clamp(1.15rem, 1.25rem, 1.55rem);
+    --facility-lab-desc-size: clamp(0.85rem, 1.125rem, 1.3rem);
+    --facility-banner-tag-size: clamp(0.78rem, 1rem, 1.3rem);
+  }
+
+  .cardOne {
+    position: relative !important;
+    top: 0 !important;
+    margin-bottom: 1.5rem !important;
+    padding: 1.25rem 1rem !important;
+    min-height: auto !important;
+  }
+
+  .cardTwo {
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    padding: 1.25rem 1rem !important;
+    min-height: auto !important;
+    box-shadow: 0px 4px 17.2px 0px #00000021 !important;
+  }
+
+  .libraryBannerTag {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .labHeaderCenter {
+    align-items: flex-start;
+    text-align: left;
+    margin: 0;
+  }
+
+  .labSectionDesc {
+    text-align: left;
+  }
+
+  .labsImagesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .labPhotoCard {
+    height: 240px;
+  }
+}

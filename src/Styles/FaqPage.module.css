@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:global(:root) {
+  --faq-header-title-size: clamp(1rem, 2.5rem, 3rem);
+  --faq-breadcrumb-size: clamp(0.75rem, 1.25rem, 1.5rem);
+  --faq-item-title-size: clamp(1rem, 1.5rem, 1.6rem);
+  /* --faq-item-desc-size: clamp(15px, 1.7vw, 18px); */
+}
+
+.page {
+  font-family: 'Outfit', sans-serif;
+  color: #333333;
+}
+
+/* ---------------------------------------------------------------------- */
+/* PAGE HEADER                                                             */
+/* ---------------------------------------------------------------------- */
+
+.pageHeader { 
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 40vh, 320px);
+  background: url('../assets/Images/cta-bg.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0 var(--global-padding-x) clamp(1.5rem, 3vw, 2.5rem) var(--global-padding-x);
+  text-align: center;
+}
+
+.headerOverlay h1 {
+  font-size: var(--faq-header-title-size);
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: var(--faq-breadcrumb-size);
+  font-weight: 400;
+}
+
+.breadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #CCCCCC;
+  text-decoration: none;
+}
+
+.breadcrumbArrow {
+  width: 7px;
+  height: 12px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  margin: 0 4px;
+}
+
+.breadcrumb span:last-child {
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------------------------- */
+/* CONTENT                                                                 */
+/* ---------------------------------------------------------------------- */
+
+.content {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--global-padding-x) 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 3.5vw, 2.75rem);
+  box-sizing: border-box;
+}
+
+.faqItem h2 {
+  font-size: var(--faq-item-title-size);
+  font-weight: 500;
+  color: #333333;
+  margin: 0 0 0.85rem;
+  line-height: 1.35;
+}
+
+.faqItem p {
+  font-size: var(--faq-breadcrumb-size);
+  font-weight: 400;
+  line-height: 1.35;
+  color: #626262;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --faq-header-title-size: clamp(1.25rem, 1.5rem, 1.85rem);
+    --faq-breadcrumb-size: clamp(0.85rem, 1.125rem, 1.3rem);
+    --faq-item-title-size: clamp(1.1rem, 1.25rem, 1.45rem);
+    --faq-item-desc-size: clamp(0.875rem, 1.25rem, 1.3rem);
+  }
+
+  .pageHeader {
+    height: 18.75rem;
+  }
+
+  .headerOverlay {
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .headerOverlay h1 {
+    font-size: var(--faq-header-title-size);
+    text-align: left !important;
+  }
+
+  .breadcrumb {
+    font-size: var(--faq-breadcrumb-size);
+    justify-content: flex-start !important;
+  }
+
+  .faqItem h2 {
+    font-size: var(--faq-item-title-size);
+  }
+
+  .faqItem p {
+    font-size: var(--faq-item-desc-size);
+  }
+}

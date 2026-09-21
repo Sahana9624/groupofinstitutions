@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap');
+
+:global(:root) {
+  --about-founder-title-size: clamp(2rem, 2rem, 3.25rem);
+  --about-founder-subtext-size: clamp(0.975rem, 1.375rem, 1.425rem);
+  --about-founder-duration-size: clamp(0.975rem, 1.625rem, 1.725rem);
+  --about-founder-quote-title-size: clamp(0.75rem, 1.75rem, 2rem);
+}
+
+.leadershipSection {
+  width: 100%;
+  padding: 3rem 0;
+  background: #FFFFFF;
+  font-family: "Outfit", sans-serif;
+}
+
+.animItem {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  backface-visibility: hidden;
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animVisible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.leadershipContainer {
+  width: 100%;
+  /* max-width: 1380px; */
+  margin: 0 auto;
+  padding: 0 var(--global-padding-x);
+  display: flex;
+  background: #FFFFFF;
+  flex-direction: column;
+  gap: 3.5rem;
+  box-sizing: border-box;
+}
+
+.leaderCard {
+  position: relative;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 3.5rem 2rem 3rem;
+  box-shadow: 0 12px 45px rgba(216, 142, 15, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  box-sizing: border-box;
+}
+
+.leaderCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(180deg, #D88E0F 0%, #DCA90E 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.cardTop {
+  display: grid;
+  grid-template-columns: 476px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.cardTopAlt {
+  display: grid;
+  grid-template-columns: 1fr 476px;
+  gap: 3.5rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.imgCol {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photoWrapper {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1.15;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: #F1F5F9;
+}
+
+.portraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.roleTitle {
+  font-size: var(--about-founder-title-size);
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.rolePrefix {
+  color: #626262;
+}
+
+.highlight {
+  background: linear-gradient(90deg, #DCA90E 37.02%, #D86907 82.7%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+}
+
+.tagline {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: var(--about-founder-duration-size);
+  font-weight: 500;
+  color: #64748B;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.personName {
+  font-size: var(--about-founder-title-size);
+  font-weight: 500;
+  color: #626262;
+  margin: 0.25rem 0 0 0;
+}
+
+.cardBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.quoteMark {
+  font-size: 10.2rem;
+  font-family: "Oswald", sans-serif;
+  color: #626262;
+  line-height: 0.7;
+  margin: 1rem 0 -3rem;
+  /* margin: 0; */
+}
+
+.visionHeading {
+  font-size: var(--about-founder-quote-title-size);
+  font-weight: 500;
+  color: #626262;
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.bioPara {
+  font-size: var(--about-founder-subtext-size);
+  /* line-height: 1.75; */
+  color: #475569;
+  margin: 0 0 0.85rem 0;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.bioPara strong {
+  color: #333333;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SMALL DESKTOP RESOLUTION & SCALEUP MEDIA QUERY (1025px to 1440px)
+   ========================================================================== */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  :global(:root) {
+    --about-founder-title-size: clamp(1.6rem, 2vw, 2.25rem);
+    --about-founder-subtext-size: clamp(0.9rem, 1vw, 1.15rem);
+    --about-founder-duration-size: clamp(0.98rem, 1.18vw, 1.35rem);
+    --about-founder-quote-title-size: clamp(1.15rem, 1.35vw, 1.6rem);
+  }
+
+  .leadershipSection {
+    padding: 2.5rem 0;
+  }
+
+  .leadershipContainer {
+    gap: 2.75rem;
+  }
+
+  .leaderCard {
+    padding: 2.75rem 2rem 2.5rem;
+    gap: 2rem;
+  }
+
+  .cardTop {
+    grid-template-columns: minmax(340px, 420px) 1fr;
+    gap: 2.5rem;
+  }
+
+  .cardTopAlt {
+    grid-template-columns: 1fr minmax(340px, 420px);
+    gap: 2.5rem;
+  }
+
+  .photoWrapper {
+    max-width: 420px;
+  }
+
+  .quoteMark {
+    font-size: 8rem;
+    margin: 0.75rem 0 -2.25rem;
+  }
+
+  .bioPara{
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .leadershipContainer {
+    gap: 2.5rem;
+  }
+
+  .cardTop,
+  .cardTopAlt {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cardTopAlt .imgCol {
+    order: -1;
+  }
+
+  .photoWrapper {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --about-founder-title-size: clamp(1.2rem, 4.8vw, 1.55rem);
+    --about-founder-subtext-size: clamp(0.875rem, 3.5vw, 0.975rem);
+    --about-founder-duration-size: clamp(0.95rem, 1.375rem, 1.45rem);
+    --about-founder-quote-title-size: clamp(0.95rem, 4vw, 1.2rem);
+  }
+
+  .leadershipSection {
+    padding: 1.5rem 0 3rem 0;
+  }
+
+  .leadershipContainer {
+    gap: 2rem;
+    padding: 0 var(--global-padding-x);
+  }
+
+  .leaderCard {
+    padding: 1.5rem 1.25rem;
+    border-radius: 28px;
+    gap: 1.25rem;
+  }
+
+  .leaderCard::before {
+    background: linear-gradient(180deg, #D88E0F 0%, #DCA90E 30%, rgba(216, 142, 15, 0) 65%, rgba(216, 142, 15, 0) 100%);
+  }
+
+  .cardTop,
+  .cardTopAlt {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  .imgCol {
+    width: 100%;
+  }
+
+  .photoWrapper {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1 / 1.05;
+    border-radius: 20px;
+    margin: 0 auto;
+  }
+
+  .headerInfo {
+    gap: 0.4rem;
+    text-align: left;
+  }
+
+  .roleTitle {
+    font-size: var(--about-founder-title-size);
+    margin-bottom: 0.2rem;
+    text-align: left;
+  }
+
+  .tagline {
+    font-size: var(--about-founder-duration-size);
+    margin-bottom: 0.35rem;
+    text-align: left;
+  }
+
+  .personName {
+    font-size: var(--about-founder-title-size);
+    margin: 0;
+    text-align: left;
+    color: #333333;
+  }
+
+  .cardBottom {
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+    text-align: left;
+  }
+
+  .quoteMark {
+    font-size: 4.6rem;
+    line-height: 1;
+    margin: 0.25rem 0 0.1rem 0;
+    color: #475569;
+  }
+
+  .visionHeading {
+    display: none;
+  }
+
+  .bioPara {
+    font-size: var(--about-founder-subtext-size);
+    line-height: 1.6;
+    color: #475569;
+    margin: 0 0 0.75rem 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  :global(:root) {
+    --about-founder-title-size: clamp(1.15rem, 1.375rem, 1.45rem);
+    --about-founder-subtext-size: clamp(0.85rem, 1.25rem, 1.5rem);
+    --about-founder-duration-size: clamp(0.9rem, 1.375rem, 1.3rem);
+  }
+
+  .leaderCard {
+    padding: 1.35rem 1.1rem;
+    border-radius: 24px;
+    gap: 1rem;
+  }
+}

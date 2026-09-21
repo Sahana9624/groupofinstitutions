@@ -1,0 +1,279 @@
+:global(:root) {
+  --campus-festive-title-size: clamp(1.85rem, 2rem, 2.4rem);
+  --campus-festive-subtext-size: clamp(0.92rem, 1.375rem, 1.45rem);
+  --campus-festive-aranga-size: clamp(0.75rem, 1.75rem, 2rem);
+  --campus-festive-badge-size: clamp(0.88rem, 1.25rem, 1.5rem);
+}
+
+.festiveSection {
+  width: 100%;
+  background: #FBF2EA;
+  padding: 5rem 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+.container {
+  width: 100%;
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 0 var(--global-padding-x);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* TOP ROW: 1280 Fill x 521 Hug */
+.topRow {
+  display: grid;
+  grid-template-columns: 1fr 522px;
+  gap: 2.5rem;
+  align-items: stretch;
+  width: 100%;
+  min-height: 521px;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.animItem,
+.animCard {
+  opacity: 0;
+  transform: translateY(50px);
+  will-change: opacity, transform;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animVisible,
+.animCardVisible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.headerGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 2rem;
+  background: #D88E0F;
+  border-radius: 50px;
+  font-size: var(--campus-festive-badge-size);
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-bottom: 2rem;
+}
+
+.pillIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.sectionTitle {
+  font-size: var(--campus-festive-title-size);
+  font-weight: 500;
+  color: #333333;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.sectionSubtext {
+  font-size: var(--campus-festive-subtext-size);
+  line-height: 1.4;
+  color: #333333;
+  margin: 0;
+  max-width: 40rem;
+}
+
+.arangaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.arangaTitle {
+  font-size: var(--campus-festive-aranga-size);
+  font-weight: 500;
+  color: #D88E0F;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.arangaDesc {
+  font-size: var(--campus-festive-subtext-size);
+  line-height: 1.4;
+  color: #333333;
+  margin: 0;
+}
+
+.arangaDesc span {
+  font-weight: 500;
+}
+
+/* RIGHT: TALL FEATURE IMAGE (Mirrored Hosts) */
+.tallFeatureImgWrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 521px;
+  border-radius: 18px;
+  overflow: hidden;
+  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); */
+}
+
+.mirroredImg {
+  transform: scaleX(-1);
+}
+
+.featureImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* BOTTOM ROW MARQUEE */
+.bottomRowMarquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 18px;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+}
+
+.marqueeGroup {
+  display: flex;
+  gap: 1.25rem;
+  flex-shrink: 0;
+  animation: marqueeScroll 26s linear infinite;
+}
+
+/* PAUSE SCROLL ON HOVER */
+.bottomRowMarquee:hover .marqueeGroup {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - 1.25rem));
+  }
+}
+
+.bottomImgWrapper {
+  flex-shrink: 0;
+  height: 247px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+.bottomImg1 {
+  width: 305px;
+}
+
+.bottomImg2,
+.bottomImg3 {
+  width: 413px;
+}
+
+@media (max-width: 1024px) {
+  .festiveSection {
+    padding: 4rem 0;
+  }
+
+  .topRow {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  .tallFeatureImgWrapper {
+    height: 380px;
+    min-height: auto;
+  }
+
+  .bottomImgWrapper {
+    height: 220px;
+  }
+
+  .bottomImg1 {
+    width: 271px;
+  }
+
+  .bottomImg2,
+  .bottomImg3 {
+    width: 368px;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --campus-festive-title-size: clamp(1.35rem, 5.5vw, 1.85rem);
+    --campus-festive-subtext-size: clamp(0.875rem, 3.8vw, 1.15rem);
+    --campus-festive-aranga-size: clamp(1.2rem, 4.8vw, 1.55rem);
+    --campus-festive-badge-size: clamp(0.8rem, 3.4vw, 1.05rem);
+  }
+
+  .bottomRowMarquee:hover .marqueeGroup {
+    animation-play-state: running !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .festiveSection {
+    padding: 3rem 0;
+  }
+
+  .topRow {
+    gap: 1.5rem;
+  }
+
+  .tallFeatureImgWrapper {
+    height: 437px;
+  }
+
+  .bottomImgWrapper {
+    height: 268px;
+  }
+
+  .bottomImg1 {
+    width: 228px;
+  }
+
+  .bottomImg2,
+  .bottomImg3 {
+    width: 309px;
+  }
+}
+
+@media (max-width: 480px) {
+  :global(:root) {
+    --campus-festive-title-size: clamp(1.2rem, 1.375rem, 1.55rem);
+    --campus-festive-subtext-size: clamp(0.8rem, 1.25rem, 1.3rem);
+    --campus-festive-aranga-size: clamp(1.1rem, 1.375rem, 1.45rem);
+    --campus-festive-badge-size: clamp(0.75rem, 1.125rem, 1.25rem);
+  }
+}

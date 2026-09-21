@@ -1,0 +1,249 @@
+:global(:root) {
+  --about-hero-core-title-size: clamp(2rem, 2.5rem, 3.25rem);
+  --about-hero-core-subtext-size: clamp(0.975rem, 1.5rem, 1.425rem);
+  --about-hero-core-pill-size: clamp(0.75rem, 1.125rem, 1.5rem)
+}
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 128px);
+  min-height: calc(100vh - 128px);
+  display: flex;
+  padding: 0 var(--global-padding-x);
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* background-color: #F1F5F9; */
+}
+
+.heroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(89.99deg, #FFFFFF 19.62%, rgba(255, 255, 255, 0) 99.99%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 100%;
+  /* padding: 4rem var(--global-padding-x) 3rem var(--global-padding-x); */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.heroTitle {
+  font-size: var(--about-hero-core-title-size);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtext {
+  font-size: var(--about-hero-core-subtext-size);
+  line-height: 1.3;
+  font-weight: 400;
+  color: #475569;
+  max-width: 28rem;
+  margin: 0;
+}
+
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.25rem;
+  width: fit-content;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #F5C065;
+  border-radius: 50px;
+  font-size: var(--about-hero-core-pill-size);
+  font-weight: 400;
+  color: #0721A0;
+  box-shadow: 0 4px 15px rgba(216, 142, 15, 0.08);
+  margin-top: 0.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pillContentWrapper {
+  display: inline-grid;
+  position: relative;
+  overflow: hidden;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+}
+
+.pillItem {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+}
+
+.pillText {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.activeItem .pillText {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+}
+
+.exitingItem .pillText {
+  transform: translateY(120%);
+  opacity: 0;
+  visibility: visible;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s ease;
+}
+
+.hiddenItem .pillText {
+  transform: translateY(120%);
+  opacity: 0;
+  visibility: hidden;
+  transition: none;
+}
+
+.pillIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.activeItem .pillIcon {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+}
+
+.exitingItem .pillIcon {
+  transform: translateX(-40px);
+  opacity: 0;
+  visibility: visible;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s ease;
+}
+
+.hiddenItem .pillIcon {
+  transform: translateX(-40px);
+  opacity: 0;
+  visibility: hidden;
+  transition: none;
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --about-hero-core-title-size: clamp(1.35rem, 5.5vw, 1.85rem);
+    --about-hero-core-subtext-size: clamp(0.875rem, 3.8vw, 1.15rem);
+    --about-hero-core-pill-size: clamp(0.8rem, 3.4vw, 1.05rem);
+  }
+
+  .heroSection {
+    height: auto;
+    min-height: calc(100vh - 90px);
+    padding: 0.5rem var(--global-padding-x) 1.75rem var(--global-padding-x);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .heroContainer {
+    padding-top: 2rem;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    gap: 1rem;
+  }
+
+  .heroBg {
+    object-position: 100% center;
+  }
+
+  .heroOverlay {
+    background: linear-gradient(180deg, #FFFFFF 14.55%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .heroTitle {
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+  .heroSubtext {
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .pillBadge {
+    margin: 0.5rem auto 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pillContentWrapper {
+    max-width: 100%;
+  }
+
+  .pillItem {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  :global(:root) {
+    --about-hero-core-title-size: clamp(1.2rem, 1.5rem, 1.55rem);
+    --about-hero-core-subtext-size: clamp(0.8rem, 1.125rem, 1.3rem);
+    --about-hero-core-pill-size: clamp(0.75rem, 1.125rem, 1.2rem);
+  }
+}

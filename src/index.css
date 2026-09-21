@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+html {
+  /* Fluid typography: True desktop zoom scaling, clamped between 14px (mobile) and 20px (ultrawide) */
+  font-size: clamp(14px, 0.8vw + 6px, 20px);
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  padding-top: 130px;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding-top: 110px;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 0vh;
+}
+
+.global-admissions-tab {
+  position: fixed;
+  right: 0;
+  bottom: 20%;
+  bottom: 20svh;
+  /* Maintain the rotation but remove vertical translation since it is no longer centered */
+  transform: rotate(180deg);
+  background: #D88E0F;
+  color: white;
+  font-weight: 400;
+  font-size: clamp(0.75rem, 1.25rem, 1.5rem);
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  padding: 1rem 0.5rem;
+  border-radius: 0 8px 8px 0;
+  box-shadow: -2px 4px 14px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 1023px) {
+  .global-admissions-tab {
+    display: none !important;
+  }
+
+  .admission-year {
+    display: none;
+  }
+}
+
+.global-admissions-tab-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .global-admissions-tab:hover .global-admissions-tab-text {
+    transform: translateX(3px);
+  }
+}
+
+/* Remove fadeUpMobile animation on main to prevent page jumping/flickering during scrolling and navigation */
+
+:root {
+  --global-padding-x: 4.5%;
+  --global-padding-y: clamp(2.5rem, 6vw, 8rem);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --global-padding-x: 4%;
+  }
+}

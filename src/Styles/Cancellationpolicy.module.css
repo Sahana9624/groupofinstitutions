@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:global(:root) {
+  --policy-header-title-size: clamp(1rem, 2.5rem, 3rem);
+  --policy-breadcrumb-size: clamp(0.75rem, 1.25rem, 1.5rem);
+  --policy-section-title-size: clamp(1rem, 1.5rem, 1.6rem);
+  --policy-item-text-size: clamp(0.75rem, 1.25rem, 1.5rem);
+}
+
+.page {
+  font-family: 'Outfit', sans-serif;
+  color: #333333;
+}
+
+/* ---------------------------------------------------------------------- */
+/* PAGE HEADER                                                             */
+/* ---------------------------------------------------------------------- */
+
+.pageHeader {
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 40vh, 320px);
+  background: url('../assets/Images/about/about-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0 var(--global-padding-x) clamp(1.5rem, 3vw, 2.5rem) var(--global-padding-x);
+  text-align: center;
+}
+
+.headerOverlay h1 {
+  font-size: var(--policy-header-title-size);
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: var(--policy-breadcrumb-size);
+  font-weight: 400;
+}
+
+.breadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #CCCCCC;
+  text-decoration: none;
+}
+
+.breadcrumbArrow {
+  width: 7px;
+  height: 12px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  margin: 0 4px;
+}
+
+.breadcrumb span:last-child {
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------------------------- */
+/* CONTENT                                                                 */
+/* ---------------------------------------------------------------------- */
+
+.content {
+  width: 100%;
+  padding: clamp(2rem, 5vw, 4rem) var(--global-padding-x);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------------- */
+/* SECTION                                                                 */
+/* ---------------------------------------------------------------------- */
+
+.section h2 {
+  font-size: var(--policy-section-title-size);
+  font-weight: 500;
+  color: #122056;
+  margin: 0 0 0.85rem;
+}
+
+.section__intro {
+  font-size: var(--policy-item-text-size);
+  font-weight: 400;
+  line-height: 1.75;
+  color: #6C6C6C;
+  margin: 0 0 0.85rem;
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section ul li {
+  position: relative;
+  padding-left: 1rem;
+  margin-left: 1.25rem;
+  font-size: var(--policy-item-text-size);
+  font-weight: 400;
+  line-height: 1.3;
+  color: #6C6C6C;
+}
+
+.section ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #6C6C6C;
+  font-size: var(--policy-item-text-size);
+  line-height: 1.5;
+}
+
+.section ul li strong {
+  color: #3b3b3b;
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE                                                              */
+/* ---------------------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  .content {
+    padding-left: var(--global-padding-x);
+    padding-right: var(--global-padding-x);
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  :global(:root), .page {
+    --policy-header-title-size: clamp(1.05rem, 1.5rem, 1.85rem);
+    --policy-breadcrumb-size: clamp(0.85rem, 1.125rem, 1.3rem);
+    --policy-section-title-size: clamp(0.9rem, 1.25rem, 1.45rem);
+    --policy-item-text-size: clamp(0.775rem, 1.125rem, 1.3rem);
+  }
+
+  .pageHeader {
+    height: 18.75rem;
+  }
+
+  .headerOverlay {
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .headerOverlay h1 {
+    font-size: var(--policy-header-title-size) !important;
+    text-align: left !important;
+  }
+
+  .breadcrumb {
+    font-size: var(--policy-breadcrumb-size) !important;
+    justify-content: flex-start !important;
+  }
+
+  .section h2 {
+    font-size: var(--policy-section-title-size) !important;
+  }
+
+  .section ul li,
+  .section ul li::before,
+  .section__intro {
+    font-size: var(--policy-item-text-size) !important;
+  }
+}
+
+/* ==========================================================================
+   HOVER STATES (Desktop)
+   ========================================================================== */
+@media (hover: hover) {
+  .breadcrumb a:hover {
+    color: #CCCCCC;
+    text-decoration: none;
+  }
+}

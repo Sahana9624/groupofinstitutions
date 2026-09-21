@@ -1,0 +1,506 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:global(:root) {
+  --footer-main-title-size: clamp(1.6rem, 1.75rem, 2.4rem);
+  --footer-sub-title-size: clamp(1rem, 1.063rem, 1.45rem);
+  --footer-trust-text-size: clamp(0.1rem, 0.563rem, 0.95rem);
+  --footer-tagline-size: clamp(1.25rem, 1.625rem, 1.75rem);
+  --footer-tagline-sub-size: clamp(0.85rem, 1rem, 0.95rem);
+  --footer-col-heading-size: clamp(1.05rem, 1.5rem, 1.6rem);
+  --footer-link-size: clamp(0.88rem, 1.125rem, 1.98rem);
+  /* --footer-copyright-size: clamp(0.82rem, 0.9vw, 0.92rem); */
+}
+
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #062075 0%, #0721A0 100%);
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  padding: 4.5rem 0 2rem 0;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-top: 5px solid #D88E0F;
+}
+
+.container {
+  width: 100%;
+  /* max-width: 1380px; */
+  margin: 0 auto;
+  padding: 0 var(--global-padding-x);
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. TOP BRANDING ROW
+   ========================================================================== */
+.topHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.brandHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.logoAndText {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.logo {
+  /* height: clamp(75px, 8vw, 100px); */
+  width: 4.375rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logoTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.logoMainTitle {
+  font-size: var(--footer-main-title-size);
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: 0.01rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.logoSubTitle {
+  font-size: var(--footer-sub-title-size);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: 0.09rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.logoTrustText {
+  font-size: var(--footer-trust-text-size);
+  /* font-size: 9px; */
+  font-weight: 400;
+  color: #D88E0F;
+  letter-spacing: 0.010rem;
+  margin: 0.25rem 0 0;
+  line-height: 1.25;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-left: 0.25rem;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: transparent;
+  /* border: 1px solid transparent; */
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  opacity: 0.95;
+  box-sizing: border-box;
+}
+
+.socialIcon:hover {
+  transform: translateY(-3px);
+  background: url("../assets/Icons/footer/social-hover-bg.svg") no-repeat center / 100% 100%;
+  border-color: transparent;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
+  opacity: 1;
+}
+
+.socialIconImg {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.socialIconCompact {
+  width: 22px;
+  height: 22px;
+}
+
+.taglineBlock {
+  text-align: left;
+  max-width: 29rem;
+}
+
+.tagline {
+  font-size: var(--footer-tagline-size);
+  font-weight: 400;
+  line-height: 1.3;
+  color: #ffffff;
+  margin: 0;
+}
+
+.goldText {
+  color: #D88E0F;
+  font-weight: 500;
+}
+
+.taglineSub {
+  font-size: var(--footer-tagline-sub-size);
+  color: #E5E7EB;
+  line-height: 1.5;
+  margin: 0.5rem 0 0 0;
+  font-weight: 400;
+}
+
+/* DIVIDER */
+.divider {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid #FFFFFF22;
+  margin: 1.35rem 0;
+}
+
+/* ==========================================================================
+   2. MIDDLE MAIN GRID (3 COLUMNS)
+   ========================================================================== */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.35fr;
+  gap: 3.5rem;
+  position: relative;
+}
+
+.gridCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.colHeading {
+  font-size: var(--footer-col-heading-size);
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  /* letter-spacing: -0.01em; */
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footerLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: var(--footer-link-size);
+  font-weight: 400;
+  transition: color 0.25s ease, transform 0.25s ease;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 4px;
+  width: fit-content;
+}
+
+.footerLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #ffffff;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footerLink:hover::after {
+  width: 35px;
+}
+
+.footerLink:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* CONTACT COLUMN */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.85rem;
+  color: #FFFFFF;
+  font-size: var(--footer-link-size);
+  line-height: 1.55;
+}
+
+.contactIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  object-fit: contain;
+}
+
+.whiteIcon {
+  filter: brightness(0) invert(1);
+}
+
+.phoneGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* SCROLL TO TOP BUTTON */
+.scrollTopWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+
+.scrollTopBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0721A0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.scrollTopBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+}
+
+/* ==========================================================================
+   3. BOTTOM COPYRIGHT & LEGAL ROW
+   ========================================================================== */
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.copyrightText {
+  color: #E5E7EB;
+  font-size: var(--footer-tagline-sub-size);
+  margin: 0;
+  font-weight: 400;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.legalLink {
+  color: #C6C6C6;
+  text-decoration: none;
+  font-size: var(--footer-tagline-sub-size);
+  transition: color 0.25s ease;
+}
+
+.legalLink:hover {
+  color: #ffffff;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 992px) {
+  .topHeader {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .taglineBlock {
+    max-width: 100%;
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .contactCol {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 3.5rem 0 2rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+
+  :global(:root),
+  .footer {
+    --footer-main-title-size: clamp(1.2rem, 1.5rem, 1.75rem);
+    --footer-sub-title-size: clamp(0.85rem, 1.063rem, 1.1rem);
+    --footer-trust-text-size: clamp(0.35rem, 0.563rem, 0.85rem);
+    --footer-tagline-size: clamp(1.15rem, 1.375rem, 1.5rem);
+    --footer-tagline-sub-size: clamp(0.8rem, 1rem, 1rem);
+    --footer-col-heading-size: clamp(1.1rem, 1.5rem, 1.5rem);
+    --footer-link-size: clamp(0.875rem, 1.125rem, 1.3rem);
+    --footer-copyright-size: clamp(0.8rem, 0.875rem, 1rem);
+  }
+
+  .logoMainTitle {
+    font-size: var(--footer-main-title-size) !important;
+    letter-spacing: 0.04rem;
+  }
+
+  .logoSubTitle {
+    font-size: var(--footer-sub-title-size) !important;
+    letter-spacing: 0.01rem;
+  }
+
+  .logoTrustText {
+    font-size: var(--footer-trust-text-size) !important;
+    letter-spacing: -0.02rem;
+  }
+
+  .tagline {
+    font-size: var(--footer-tagline-size) !important;
+  }
+
+  .taglineSub {
+    font-size: var(--footer-tagline-sub-size) !important;
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .mainGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .contactCol {
+    order: 1;
+    grid-column: auto;
+  }
+
+  .gridCol:nth-child(1) {
+    order: 2;
+  }
+
+  .gridCol:nth-child(2) {
+    order: 3;
+    margin-bottom: -0.85rem;
+  }
+
+  .colHeading {
+    font-size: var(--footer-col-heading-size) !important;
+  }
+
+  .footerLink {
+    font-size: var(--footer-link-size) !important;
+  }
+
+  .contactItem {
+    font-size: var(--footer-link-size) !important;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .copyrightText {
+    font-size: var(--footer-copyright-size) !important;
+    text-align: center;
+    width: 100%;
+  }
+
+  .legalLinks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem 1.25rem;
+    text-align: center;
+    width: 100%;
+    justify-items: center;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .legalLink {
+    font-size: var(--footer-copyright-size) !important;
+    text-align: center;
+  }
+
+  .socialIcon:hover {
+    transform: none !important;
+    background: transparent !important;
+    opacity: 0.95 !important;
+  }
+
+  .footerLink:hover {
+    color: #ffffff !important;
+    transform: none !important;
+  }
+
+  .footerLink:hover::after {
+    width: 0 !important;
+  }
+
+  .scrollTopBtn:hover {
+    transform: none !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+    background: #ffffff !important;
+  }
+
+  .legalLink:hover {
+    color: #C6C6C6 !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  :global(:root) {
+    --footer-main-title-size: clamp(1.45rem, 1.6rem, 2.15rem);
+    --footer-sub-title-size: clamp(0.92rem, 0.98rem, 1.3rem);
+    --footer-trust-text-size: clamp(0.1rem, 0.52rem, 0.88rem);
+    --footer-tagline-size: clamp(1.12rem, 1.45rem, 1.6rem);
+    --footer-tagline-sub-size: clamp(0.8rem, 0.92rem, 0.88rem);
+    --footer-col-heading-size: clamp(0.95rem, 1.32rem, 1.45rem);
+    --footer-link-size: clamp(0.82rem, 1rem, 1.75rem);
+  }
+}

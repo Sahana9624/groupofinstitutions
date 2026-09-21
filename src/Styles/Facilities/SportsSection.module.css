@@ -1,0 +1,636 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:global(:root) {
+  --facility-sports-title-size: clamp(1.8rem, 2rem, 2.5rem);
+  --facility-sports-desc-size: clamp(0.95rem, 1.375rem, 1.45rem);
+  /* --facility-athlete-title-size: clamp(1.4rem, 2.2vw, 2.1rem); */
+  --facility-athlete-sub-size: clamp(0.88rem, 1.25rem, 1.98rem);
+  --facility-navy-title-size: clamp(1.6rem, 1.75rem, 2.3rem);
+  --facility-navy-sub-size: clamp(0.9rem, 1.125rem, 1.2rem);
+  /* --facility-sport-card-title-size: clamp(1.05rem, 1.2vw, 1.2rem); */
+  --facility-sport-card-desc-size: clamp(0.82rem, 1rem, 1.88rem);
+  /* --facility-sport-btn-size: clamp(0.78rem, 0.85vw, 0.85rem); */
+}
+
+.sportsSectionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: 'Outfit', sans-serif;
+  scroll-margin-top: 150px;
+}
+
+/* Scroll Fade Up Animation (Accreditations style) */
+.sectionHeaderCenter,
+.sportsAthleteBanner,
+.sportsNavyHeader,
+.sportCardWrapper {
+  opacity: 0;
+  transform: translateY(70px);
+  will-change: opacity, transform;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardVisible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mainSectionTitle {
+  font-size: var(--facility-sports-title-size);
+  font-weight: 500;
+  color: #333333;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.sectionDesc {
+  font-size: var(--facility-sports-desc-size);
+  line-height: 1.35;
+  color: #626262;
+  margin: 0;
+}
+
+/* Athlete Banner */
+.sportsAthleteBanner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: clamp(280px, 60vh, 460px);
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(180deg, #D88E0F 0%, #DCA90E 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+.sportsAthleteInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.sportsAthleteImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: center 50%;
+}
+
+.sportsAthleteOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(74.63deg, #FFFFFF 15.45%, rgba(153, 153, 153, 0) 120.55%);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.sportsAthleteText {
+  max-width: 35rem;
+}
+
+.sportsAthleteTitle {
+  font-size: var(--facility-sports-title-size);
+  font-weight: 500;
+  color: #0721A0;
+  margin: 0 0 0.825rem;
+  line-height: 1.25;
+}
+
+.sportsAthleteSubtitle {
+  font-size: var(--facility-athlete-sub-size);
+  line-height: 1.35;
+  color: #0721A0;
+  margin: 0;
+}
+
+/* Deep Navy Blue Full-Width Section */
+.sportsNavyContainer {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: linear-gradient(270deg, #062075 0%, #0721A0 100%);
+  border-radius: 0;
+  margin-top: -4.5rem;
+  padding: 7.5rem var(--global-padding-x) 5rem var(--global-padding-x);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.sportsNavyHeader {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.sportsNavyTitle {
+  font-size: var(--facility-navy-title-size);
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.sportsNavySubtitle {
+  font-size: var(--facility-navy-sub-size);
+  color: #ffffff;
+  /* max-width: 680px; */
+  margin: 0;
+  line-height: 1.55;
+}
+
+.sportsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 2.75rem 1.75rem;
+  align-items: stretch;
+}
+
+.sportCardWrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sportBadge {
+  position: absolute;
+  top: 0.2rem;
+  left: 1.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 12px 12px 0 0;
+  color: #FFFFFF;
+  font-size: clamp(0.85rem, 0.9rem, 1rem);
+  font-weight: 500;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.sportCard {
+  position: relative;
+  z-index: 2;
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  padding: 1.125rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  flex: 1;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.sportCardWrapper:hover .sportCard {
+  transform: translate3d(0, 34px, 0);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+.sportImgWrapper {
+  width: 100%;
+  height: 260px;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sportImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* transition: transform 0.4s ease; */
+}
+
+/* .sportCard:hover .sportImg {
+  transform: scale(1.04);
+} */
+
+.sportBody {
+  padding: 0.25rem 0.25rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.sportTitle {
+  font-size: var(--facility-athlete-sub-size);
+  font-weight: 500;
+  color: #333333;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.sportDesc {
+  font-size: var(--facility-sport-card-desc-size);
+  line-height: 1.55;
+  color: #626262;
+  margin: 0;
+  flex: 1;
+}
+
+.sportBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.sportBtnCircle {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  max-width: 34px;
+  max-height: 34px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #0721A0;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotate(0deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+}
+
+.sportBtnText {
+  color: #0721A0;
+  font-size: var(--facility-athlete-sub-size);
+  font-weight: 400;
+  letter-spacing: -0.2px;
+}
+
+.sportCardWrapper:hover .sportBtnCircle {
+  transform: rotate(45deg);
+}
+
+/* Modal (Slide from Top to Down) */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: backdropFade 0.3s ease-out;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
+
+.modalContent {
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  max-width: 580px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: modalSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalHeaderBar {
+  padding: 0.875rem 1.5rem;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: var(--facility-sport-card-desc-size);
+  letter-spacing: 0.3px;
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  padding: 0;
+}
+
+.modalCloseBtn:hover {
+  background: #E2E8F0;
+  transform: rotate(90deg);
+}
+
+.modalCloseIcon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: block;
+}
+
+.modalBody {
+  position: relative;
+  padding: 1.75rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.modalTitle {
+  font-size: var(--facility-athlete-sub-size);
+  font-weight: 500;
+  color: #1E293B;
+  margin: 0;
+  line-height: 1.3;
+  padding-right: 2.25rem;
+}
+
+.modalFullDesc {
+  font-size: var(--facility-navy-sub-size);
+  line-height: 1.65;
+  color: #626262;
+  margin: 0;
+}
+
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-70px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .sportsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --facility-sports-title-size: clamp(1.25rem, 1.375rem, 1.85rem);
+    --facility-sports-desc-size: clamp(0.875rem, 1rem, 1.15rem);
+    --facility-athlete-sub-size: clamp(0.875rem, 1.05rem, 1.2rem);
+    --facility-navy-title-size: clamp(1.1rem, 1.25rem, 1.75rem);
+    --facility-navy-sub-size: clamp(0.85rem, 1rem, 1.125rem);
+    --facility-sport-card-desc-size: clamp(0.8rem, 1.125rem, 1.5rem);
+  }
+
+  .sportsAthleteBanner {
+    height: 400px;
+  }
+
+  .sportsAthleteOverlay {
+    /* padding: 1.25rem; */
+    padding-top: 1.25rem;
+    background: linear-gradient(180deg, #FFFFFF 18.75%, rgba(255, 255, 255, 0) 100%);
+    align-items: flex-start;
+  }
+
+  .sportsAthleteText {
+    text-align: center;
+  }
+
+  .sportsAthleteTitle {
+    font-size: var(--facility-navy-title-size);
+  }
+
+  .sportsNavyContainer {
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    border-radius: 0;
+    margin-top: -3.5rem;
+    padding: 4.5rem var(--global-padding-x) 3.5rem var(--global-padding-x);
+  }
+
+  .modalBackdrop {
+    z-index: 20000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .modalContent {
+    max-height: 82vh !important;
+    max-height: 82dvh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: auto !important;
+    border-radius: 1.25rem !important;
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  .modalHeaderBar {
+    font-size: var(--facility-navy-sub-size) !important;
+    flex-shrink: 0 !important;
+    padding: 0.85rem 1.25rem !important;
+    text-align: center !important;
+    border-top-left-radius: 1.25rem !important;
+    border-top-right-radius: 1.25rem !important;
+  }
+
+  .modalBody {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 1.5rem 1.25rem 1.75rem !important;
+  }
+
+  .modalTitle {
+    font-size: var(--facility-sports-title-size) !important;
+  }
+
+  .modalFullDesc {
+    font-size: var(--facility-sport-card-desc-size) !important;
+  }
+
+  .sportsGrid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.75rem !important;
+    width: 100% !important;
+  }
+
+  .sportCardWrapper {
+    position: relative !important;
+    margin-top: 1.75rem !important;
+    width: 100% !important;
+  }
+
+  .sportBadge {
+    position: absolute !important;
+    bottom: 100% !important;
+    top: auto !important;
+    left: 1.25rem !important;
+    padding: 0.45rem 1.25rem !important;
+    border-radius: 12px 12px 0 0 !important;
+    font-size: var(--facility-sports-desc-size) !important;
+    font-weight: 500 !important;
+    color: #FFFFFF !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .sportCard {
+    position: relative !important;
+    z-index: 2 !important;
+    background: #FFFFFF !important;
+    border-radius: 1.5rem !important;
+    padding: 1rem !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.85rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+  }
+
+  .sportImgWrapper {
+    width: 100% !important;
+    height: 260px !important;
+    border-radius: 1.15rem !important;
+    overflow: hidden !important;
+  }
+
+  .sportImg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 1.15rem !important;
+    display: block !important;
+  }
+
+  .sportBody {
+    padding: 0.25rem 0.25rem 0.35rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.55rem !important;
+  }
+
+  .sportTitle {
+    font-size: var(--facility-navy-title-size) !important;
+    /* font-weight: 600 !important;
+    color: #333333 !important; */
+    margin: 0 !important;
+    line-height: 1.3 !important;
+  }
+
+  .sportDesc {
+    font-size: var(--facility-navy-sub-size) !important;
+    line-height: 1.45 !important;
+    color: #626262 !important;
+    margin: 0 !important;
+  }
+
+  .sportBtn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+    margin-top: 0.25rem !important;
+  }
+
+  .sportBtnCircle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    border-radius: 50% !important;
+    background: #0721A0 !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: none !important;
+  }
+
+  .sportBtnText {
+    color: #0721A0 !important;
+    font-size: var(--facility-navy-title-size) !important;
+    /* font-weight: 600 !important; */
+  }
+
+  .sportCardWrapper:hover .sportCard,
+  .sportCardWrapper:hover .sportBtnCircle,
+  .modalCloseBtn:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}

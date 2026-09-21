@@ -1,0 +1,123 @@
+:global(:root) {
+  --placement-guide-title-size: clamp(2rem, 2rem, 3.25rem);
+  --placement-guide-subtitle-size: clamp(0.75rem, 1.75rem, 2rem);
+  --placement-guide-subtext-size: clamp(0.975rem, 1.25rem, 1.625rem);
+}
+
+.guidanceSection {
+  width: 100%;
+  background: #ffffff;
+  padding: 2.5rem var(--global-padding-x, 4.5%) 2.5rem;
+  box-sizing: border-box;
+}
+
+.container {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.animItem,
+.animCard {
+  opacity: 0;
+  transform: translateY(40px) translateZ(0);
+  will-change: opacity, transform;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animVisible,
+.animCardVisible {
+  opacity: 1 !important;
+  transform: translateY(0) translateZ(0) !important;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 0 58px 0 58px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateZ(0);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: center 45%;
+  display: block;
+  transform: translateZ(0);
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.tagline {
+  /* font-family: 'Outfit', sans-serif; */
+  font-size: var(--placement-guide-title-size);
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.goldText {
+  color: #D88E0F;
+}
+
+.blueText {
+  color: #0721A0;
+}
+
+.heading {
+  /* font-family: 'Outfit', sans-serif; */
+  font-size: var(--placement-guide-subtitle-size);
+  font-weight: 500;
+  color: #333333;
+  line-height: 1.25;
+  margin: 0;
+  /* letter-spacing: -0.01em; */
+}
+
+.paragraph {
+  /* font-family: 'Inter', sans-serif; */
+  font-size: var(--placement-guide-subtext-size);
+  line-height: 1.35;
+  color: #626262;
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  :global(:root) {
+    --placement-guide-title-size: clamp(1.2rem, 1.375rem, 1.55rem);
+    --placement-guide-subtitle-size: clamp(1rem, 1.25rem, 1.45rem);
+    --placement-guide-subtext-size: clamp(0.85rem, 1.125rem, 1.25rem);
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .image {
+    max-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .guidanceSection {
+    padding: 1rem var(--global-padding-x, 4%) 2rem;
+  }
+
+  /* .imageWrapper {
+    border-radius: 1.25rem;
+  } */
+}

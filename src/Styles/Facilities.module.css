@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+.facilitiesPage {
+  font-family: 'Outfit', sans-serif;
+  color: #1E293B;
+  /* background-color: #F8FAFC; */
+  overflow-x: clip;
+  width: 100%;
+}
+
+.pageContent {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3.5rem var(--global-padding-x) 1rem var(--global-padding-x);
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  box-sizing: border-box;
+  scroll-margin-top: 140px;
+}
+
+@media (max-width: 768px) {
+  .pageContent {
+    gap: 2.5rem;
+    padding: 2.5rem var(--global-padding-x) 4rem var(--global-padding-x);
+  }
+}

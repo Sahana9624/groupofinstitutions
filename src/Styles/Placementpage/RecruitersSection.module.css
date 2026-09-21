@@ -1,0 +1,155 @@
+:global(:root) {
+  --placement-recrut-subtext-size: clamp(0.975rem, 1.5rem, 1.625rem);
+}
+
+.recruitersSection {
+  width: 100%;
+  background: #ffffff;
+  padding: 4rem var(--global-padding-x, 4.5%) 4.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: var(--placement-recrut-subtext-size);
+  font-weight: 500;
+  color: #626262;
+  text-align: center;
+  margin: 0 0 3rem 0;
+}
+
+.logosGrid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+/* MARQUEE INFINITE SCROLL CONTAINER */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  padding: 0.5rem 0;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  width: max-content;
+  will-change: transform;
+}
+
+/* PAUSE ON HOVER */
+.marqueeContainer:hover .marqueeTrack,
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+/* ROW 1: LEFT TO RIGHT SCROLL */
+.trackLeftToRight {
+  animation: scrollLeftToRight 28s linear infinite;
+}
+
+/* ROW 2: RIGHT TO LEFT SCROLL (INVERSE) */
+.trackRightToLeft {
+  animation: scrollRightToLeft 28s linear infinite;
+}
+
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollRightToLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logoItem {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0.5rem 1.5rem;
+  /* transition: transform 0.25s ease; */
+  /* cursor: pointer; */
+}
+
+/* .logoItem:hover {
+  transform: translateY(-2px) scale(1.04);
+} */
+
+.logoImg {
+  max-height: 40px;
+  max-width: 140px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: contrast(105%);
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --placement-recrut-subtext-size: clamp(0.975rem, 1.375rem, 1.45rem);
+  }
+
+  .recruitersSection {
+    padding: 3rem var(--global-padding-x, 4%) 3.5rem;
+  }
+
+  .heading {
+    margin-bottom: 2rem;
+  }
+
+  .marqueeContainer:hover .marqueeTrack,
+  .marqueeTrack:hover {
+    animation-play-state: running !important;
+  }
+
+  .marqueeTrack {
+    gap: 2rem;
+  }
+
+  .logoItem {
+    padding: 0.25rem 0.75rem;
+    height: 38px;
+  }
+
+  .logoImg {
+    max-height: 28px;
+    max-width: 110px;
+  }
+}

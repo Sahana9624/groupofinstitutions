@@ -1,0 +1,161 @@
+:global(:root) {
+  --about-define-title-size: clamp(1rem, 2rem, 2.5rem);
+  --about-define-subtext-size: clamp(0.875rem, 1.5rem, 1.625rem);
+  --about-define-para-size: clamp(0.75rem, 1.25rem, 1.3rem);
+}
+
+.defineSection {
+  width: 100%;
+  padding: 3rem 0;
+  background: transparent;
+}
+
+.defineContainer {
+  width: 100%;
+  /* max-width: 1380px; */
+  margin: 0 auto;
+  padding: 0 var(--global-padding-x);
+  box-sizing: border-box;
+}
+
+.defineCard {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 3rem;
+  /* min-height: 381px; */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid #EEF2F6;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.animCard {
+  opacity: 0;
+  transform: translateY(70px);
+  will-change: opacity, transform;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.defineLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.defineTitle {
+  font-size: var(--about-define-title-size);
+  font-weight: 500;
+  color: #0721A0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.defineSubtitle {
+  font-size: var(--about-define-subtext-size);
+  font-weight: 500;
+  color: #D88E0F;
+  margin: 0;
+}
+
+.defineText {
+  font-size: var(--about-define-para-size);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #626262;
+  margin: 0;
+}
+
+.defineRight {
+  width: 475px;
+  max-width: 100%;
+  height: 290px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  justify-self: end;
+  margin-left: auto;
+}
+
+.defineImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% top;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .defineCard {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+  }
+
+  .defineRight {
+    width: 100%;
+    max-width: 100%;
+    height: 240px;
+    margin: 0 auto;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --about-define-title-size: clamp(1.25rem, 4.8vw, 1.75rem);
+    --about-define-subtext-size: clamp(0.95rem, 3.8vw, 1.25rem);
+    --about-define-para-size: clamp(0.85rem, 3.2vw, 1.05rem);
+  }
+
+  .defineRight {
+    height: 287px;
+  }
+
+  .defineCard {
+    text-align: center;
+  }
+
+  .defineLeft {
+    align-items: center;
+    text-align: center;
+  }
+
+  .defineTitle,
+  .defineSubtitle,
+  .defineText {
+    text-align: center;
+  }
+
+  .defineText {
+    line-height: 1.35;
+  }
+
+  .defineRight {
+    margin: 0 auto;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .defineCard {
+    padding: 1.8rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :global(:root) {
+    --about-define-title-size: clamp(1.15rem, 1.5rem, 1.6rem);
+    --about-define-subtext-size: clamp(0.875rem, 1.25rem, 1.3rem);
+    --about-define-para-size: clamp(0.8rem, 1.125rem, 1.5rem);
+  }
+}

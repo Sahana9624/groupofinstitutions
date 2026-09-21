@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:global(:root) {
+  --about-empower-title-size: clamp(1.8rem, 2.25rem, 2.5rem);
+  --about-empower-subtext-size: clamp(0.975rem, 1.375rem, 1.525rem);
+  --about-empower-subtitle-size: clamp(0.975rem, 1.75rem, 2rem);
+  --about-empower-subtext2-size: clamp(0.975rem, 1.25rem, 1.525rem);
+  --about-empower-btn-size: clamp(0.9rem, 1.25rem, 1.3rem);
+}
+
+.empowerSection {
+  position: relative;
+  width: 100%;
+  padding: 5.5rem var(--global-padding-x);
+  background: #f8fafc;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  box-sizing: border-box;
+}
+
+.empowerBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.empowerOverlay {
+  position: absolute;
+  inset: 0;
+  background: #FFFFFF33;
+  z-index: 1;
+}
+
+.empowerContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.empowerLeft {
+  display: flex;
+  flex-direction: column;
+  /* margin-top: -6rem; */
+}
+
+.empowerTitle {
+  font-size: var(--about-empower-title-size);
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0 0 1.25rem 0;
+}
+
+.blueText {
+  color: #0721A0;
+}
+
+.goldText {
+  background: linear-gradient(90deg, #DCA90E 0%, #D86907 82.69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.empowerSubtext {
+  font-size: var(--about-empower-subtext-size);
+  color: #626262;
+  line-height: 1.25;
+  margin: 0 0 2.5rem 0;
+  /* width: 35rem; */
+}
+
+.imgCardWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 2rem;
+  overflow: visible;
+}
+
+.studentImg {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 0 58px 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.badgeStamp {
+  position: absolute;
+  bottom: 2px;
+  right: -1px;
+  width: 142px;
+  height: 142px;
+  background: linear-gradient(0deg, #ffffffde, #ffffffeb);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.scrollText {
+  position: absolute;
+  inset: 12px;
+  width: calc(90% - 10px);
+  height: calc(90% - 10px);
+  object-fit: contain;
+  animation: spinCircleText 18s linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+.badgeStamp:hover .scrollText {
+  animation-play-state: paused;
+}
+
+@keyframes spinCircleText {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.innerCircle {
+  width: 71px;
+  height: 71px;
+  background: linear-gradient(0deg, rgba(98, 98, 98, 0.2), rgba(98, 98, 98, 0.2));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.stampText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #DCA90E 0%, #D86907 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+/* RIGHT TRUST CARD */
+.trustCard {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 48px rgba(7, 33, 160, 0.06);
+}
+
+.trustTitle {
+  font-size: var(--about-empower-subtitle-size);
+  font-weight: 500;
+  color: #333333;
+  margin: 0 0 1rem 0;
+}
+
+.trustPara {
+  font-size: var(--about-empower-subtext2-size);
+  color: #626262;
+  line-height: 1.4;
+  margin: 0 0 1rem 0;
+}
+
+.btnPrimary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 2.25rem;
+  background-color: #0721A0;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: var(--about-empower-btn-size);
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px 0px rgba(7, 33, 160, 0.24);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btnPrimary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #0721A0 0%, #062075 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+@media (hover: hover) and (min-width: 769px) {
+  .btnPrimary:hover::before {
+    opacity: 1;
+  }
+
+  .btnPrimary:hover {
+    box-shadow: 0px 4px 12px 0px rgba(7, 33, 160, 0.38);
+  }
+
+  .btnPrimary:hover .starIconWrapper {
+    transform: rotate(20deg);
+  }
+
+  .btnPrimary:hover .starIconWhite {
+    opacity: 0;
+  }
+
+  .btnPrimary:hover .starIconYellow {
+    opacity: 1;
+  }
+}
+
+.starIconWrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.starIconWhite,
+.starIconYellow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.35s ease;
+}
+
+.starIconWhite {
+  opacity: 1;
+}
+
+.starIconYellow {
+  opacity: 0;
+}
+
+@media (max-width: 992px) {
+  .empowerContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .trustCard {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --about-empower-title-size: clamp(1.15rem, 4.5vw, 1.375rem);
+    --about-empower-subtext-size: clamp(0.85rem, 1.375rem, 1.45rem);
+    --about-empower-subtitle-size: clamp(1.15rem, 1.375rem, 1.45rem);
+    --about-empower-subtext2-size: clamp(0.85rem, 1.125rem, 1.25rem);
+    --about-empower-btn-size: clamp(0.85rem, 1.25rem, 1.35rem);
+  }
+
+  .empowerSection {
+    padding: 2.5rem var(--global-padding-x);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .empowerContainer {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .empowerLeft {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .empowerTitle {
+    text-align: center;
+    margin: 0 0 0.75rem 0;
+    width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .empowerSubtext {
+    text-align: center;
+    color: #ffffff;
+    margin: 0 0 1.5rem 0;
+    width: 100%;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .imgCardWrapper {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 1.5rem;
+    overflow: visible;
+    margin-bottom: 0.5rem;
+  }
+
+  .studentImg {
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+    max-height: 320px;
+    object-fit: cover;
+    /* border-radius: 1.5rem; */
+  }
+
+  .badgeStamp {
+    right: -1px;
+    bottom: 3px;
+    width: clamp(80px, 22vw, 110px);
+    height: clamp(80px, 22vw, 110px);
+  }
+
+  .scrollText {
+    inset: 4px;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+  }
+
+  .innerCircle {
+    width: clamp(45px, 12vw, 60px);
+    height: clamp(45px, 12vw, 60px);
+  }
+
+  .stampText {
+    font-size: clamp(0.95rem, 3.5vw, 1.25rem);
+  }
+
+  .trustCard {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: clamp(1.25rem, 4vw, 2rem) clamp(1rem, 3.5vw, 1.5rem);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .trustTitle {
+    margin-bottom: 0.85rem;
+  }
+
+  .trustPara {
+    margin-bottom: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .btnPrimary {
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.8rem 1.5rem;
+    box-sizing: border-box;
+  }
+
+  /* Block hover actions on mobile view */
+  .btnPrimary:hover,
+  .btnPrimary:active,
+  .btnPrimary:focus {
+    transform: none !important;
+    box-shadow: 0px 4px 4px 0px rgba(7, 33, 160, 0.24) !important;
+  }
+
+  .btnPrimary:hover::before,
+  .btnPrimary:active::before {
+    opacity: 0 !important;
+  }
+
+  .btnPrimary:hover .starIconWrapper,
+  .btnPrimary:active .starIconWrapper {
+    transform: none !important;
+  }
+
+  .btnPrimary:hover .starIconWhite,
+  .btnPrimary:active .starIconWhite {
+    opacity: 1 !important;
+  }
+
+  .btnPrimary:hover .starIconYellow,
+  .btnPrimary:active .starIconYellow {
+    opacity: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  :global(:root) {
+    --about-empower-title-size: clamp(1.2rem, 1.375rem, 1.375rem);
+    --about-empower-subtext-size: clamp(0.8rem, 1.125rem, 1.38rem);
+    --about-empower-subtitle-size: clamp(1.05rem, 1.375rem, 1.4rem);
+    --about-empower-subtext2-size: clamp(0.8rem, 1.125rem, 1.5rem);
+    --about-empower-btn-size: clamp(0.8rem, 1.2rem, 1.35rem);
+  }
+
+  .empowerSection {
+    padding: 2rem var(--global-padding-x);
+  }
+
+  .studentImg {
+    border-radius: 43px 12px 58px;
+  }
+
+  .trustCard {
+    padding: 1.5rem 1.15rem;
+    /* border-radius: 1.25rem; */
+  }
+
+  .btnPrimary {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,335 @@
+:global(:root) {
+  --campus-culture-title-size: clamp(1.85rem, 2rem, 2.6rem);
+  --campus-culture-subtext-size: clamp(0.95rem, 1.375rem, 1.45rem);
+  --campus-culture-aranga-title: clamp(1.35rem, 1.75rem, 2.6rem);
+  /* --campus-culture-aranga-desc:clamp(1.85rem,2rem,2.6rem); */
+  --campus-culture-badge-size: clamp(0.75rem, 1.125rem, 1.5rem);
+}
+
+.cultureSection {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 5rem 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--global-padding-x);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  max-width: 720px;
+}
+
+.animItem,
+.animCard {
+  opacity: 0;
+  transform: translateY(50px);
+  will-change: opacity, transform;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animVisible,
+.animCardVisible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(270deg, #EFF1FC 0%, #FBF2EA 100%);
+  border-radius: 50px;
+  font-size: var(--campus-culture-badge-size);
+  font-weight: 400;
+  color: #062075;
+  margin-bottom: 0.85rem;
+}
+
+.pillIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.title {
+  font-size: var(--campus-culture-title-size);
+  font-weight: 500;
+  color: #333333;
+  margin: 0;
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+
+.subtext {
+  font-size: var(--campus-culture-subtext-size);
+  line-height: 1.3;
+  font-weight: 400;
+  color: #626262;
+  margin: 0;
+}
+
+.contentBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 1.25rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.tallFeatureImgWrapper {
+  width: 100%;
+  aspect-ratio: 630 / 600;
+  height: auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.mirroredImg {
+  transform: scaleX(-1);
+}
+
+.featureImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* transition: transform 0.5s ease; */
+}
+
+/* .tallFeatureImgWrapper:hover .featureImg:not(.mirroredImg),
+.sideImgWrapper:hover .featureImg,
+.bottomImgWrapper:hover .featureImg {
+  transform: scale(1.03);
+} */
+
+/* .tallFeatureImgWrapper:hover .mirroredImg {
+  transform: scaleX(-1) scale(1.03);
+} */
+
+.topRightContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3.25rem;
+}
+
+.arangaTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.arangaTitle {
+  font-size: var(--campus-culture-aranga-title);
+  font-weight: 600;
+  color: #D88E0F;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.arangaDesc {
+  font-size: var(--campus-culture-subtext-size);
+  font-weight: 400;
+  line-height: 1.4;
+  color: #555555;
+  margin: 0;
+}
+
+.twoImgRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.sideImgWrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.topImg1,
+.topImg2 {
+  width: 100%;
+  height: 100%;
+}
+
+.bottomRowMarquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+}
+
+.marqueeGroup {
+  display: flex;
+  gap: 1.25rem;
+  flex-shrink: 0;
+  animation: marqueeScroll 26s linear infinite;
+}
+
+/* PAUSE SCROLL ON HOVER */
+.bottomRowMarquee:hover .marqueeGroup {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - 1.25rem));
+  }
+}
+
+.bottomImgWrapper {
+  flex-shrink: 0;
+  height: 247px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+.bottomImg1 {
+  width: 305px;
+}
+
+.bottomImg2,
+.bottomImg3 {
+  width: 413px;
+}
+
+@media (max-width: 1024px) {
+  .cultureSection {
+    padding: 4rem 0;
+  }
+
+  .topRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tallFeatureImgWrapper {
+    height: auto;
+    aspect-ratio: 630 / 420;
+  }
+
+  .twoImgRow {
+    grid-template-columns: 1fr 1fr;
+    flex: initial;
+  }
+
+  .sideImgWrapper {
+    height: 240px;
+  }
+
+  .bottomImgWrapper {
+    height: 220px;
+  }
+
+  .bottomImg1 {
+    width: 271px;
+  }
+
+  .bottomImg2,
+  .bottomImg3 {
+    width: 368px;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --campus-culture-title-size: clamp(1.25rem, 1.375rem, 1.85rem);
+    --campus-culture-subtext-size: clamp(0.875rem, 1.25rem, 1.55rem);
+    --campus-culture-aranga-title: clamp(1.2rem, 1.375rem, 1.55rem);
+    --campus-culture-badge-size: clamp(0.8rem, 1.125rem, 1.25rem);
+  }
+
+  .bottomRowMarquee:hover .marqueeGroup {
+    animation-play-state: running !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .cultureSection {
+    padding: 3rem 0;
+  }
+
+  .topRow {
+    gap: 1.25rem;
+  }
+
+  .twoImgRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sideImgWrapper {
+    height: 260px;
+  }
+
+  .tallFeatureImgWrapper {
+    aspect-ratio: 630 / 400;
+  }
+
+  .bottomImgWrapper {
+    height: 268px;
+  }
+
+  .bottomImg1 {
+    width: 228px;
+  }
+
+  .bottomImg2,
+  .bottomImg3 {
+    width: 309px;
+  }
+}
+
+@media (max-width: 480px) {
+  :global(:root) {
+    --campus-culture-title-size: clamp(1.2rem, 1.375rem, 1.55rem);
+    --campus-culture-subtext-size: clamp(0.8rem, 1.25rem, 1.3rem);
+    --campus-culture-aranga-title: clamp(1.1rem, 1.375rem, 1.45rem);
+    --campus-culture-badge-size: clamp(0.75rem, 1.125rem, 1.2rem);
+  }
+}

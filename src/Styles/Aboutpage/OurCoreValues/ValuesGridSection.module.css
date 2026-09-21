@@ -1,0 +1,241 @@
+:global(:root) {
+  /* --about-core-title-size: clamp(1rem, 2rem, 2.5rem); */
+  --about-core-subtext-size: clamp(0.875rem, 1.5rem, 1.625rem);
+  --about-core-para-size: clamp(0.75rem, 1.25rem, 1.3rem);
+}
+
+.gridSection {
+  width: 100%;
+  padding: 1.5rem 0;
+}
+
+.gridContainer {
+  width: 100%;
+  /* max-width: 1380px; */
+  margin: 0 auto;
+  padding: 0 var(--global-padding-x);
+  box-sizing: border-box;
+}
+
+.valuesGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.valueCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  opacity: 0;
+  transform: translateY(70px);
+  will-change: opacity, transform;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+  box-sizing: border-box;
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardVisible:hover {
+  box-shadow: 0px 4px 12.6px 0px #00000012;
+  border-color: rgba(216, 142, 15, 0.2);
+  background: linear-gradient(305.71deg, #FFFFFF 64.97%, #FBF2EA 96.63%);
+  transform: translateY(-4px);
+}
+
+.iconWrapper {
+  position: relative;
+  width: 4.75rem;
+  height: 4.75rem;
+  border-radius: 12px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  z-index: 1;
+}
+
+.iconWrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #FBF2EA;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.cardIcon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.valueCard:hover .iconWrapper {
+  transform: translateX(28px);
+  /* box-shadow: 0 4px 14px rgba(216, 142, 15, 0.25); */
+}
+
+.valueCard:hover .iconWrapper::before {
+  opacity: 1;
+}
+
+.cardTitle {
+  font-size: var(--about-core-subtext-size);
+  font-weight: 400;
+  color: #0721A0;
+  margin: 0;
+}
+
+.cardText {
+  font-size: var(--about-core-para-size);
+  line-height: 1.35;
+  color: #626262;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(:root) {
+    --about-core-subtext-size: clamp(1.15rem, 4.5vw, 1.35rem);
+    --about-core-para-size: clamp(0.875rem, 3.5vw, 1rem);
+  }
+
+  .gridSection {
+    padding: 1.25rem 0 2.5rem 0;
+  }
+
+  .gridContainer {
+    padding: 0 var(--global-padding-x);
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .valueCard {
+    padding: 1.85rem 1.5rem;
+    border-radius: 24px;
+    gap: 0.85rem;
+    background: linear-gradient(305.71deg, #FFFFFF 64.97%, #FBF2EA 96.63%);
+    border: 1px solid #EEF2F6;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .valueCard:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+    background: linear-gradient(305.71deg, #FFFFFF 64.97%, #FBF2EA 96.63%) !important;
+    border-color: #EEF2F6 !important;
+    transform: none !important;
+  }
+
+  .valueCard:hover .iconWrapper {
+    transform: none !important;
+  }
+
+  .valueCard:hover .iconWrapper::before {
+    opacity: 0 !important;
+  }
+
+  .iconWrapper {
+    width: auto;
+    height: auto;
+    min-width: unset;
+    min-height: unset;
+    background: transparent;
+    border-radius: 0;
+    margin: 0 0 0.25rem 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+    box-shadow: none;
+    transform: none !important;
+  }
+
+  .iconWrapper::before {
+    display: none !important;
+  }
+
+  .cardIcon {
+    width: 36px;
+    height: 36px;
+    margin-left: 1.5rem;
+    display: block;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .cardTitle {
+    font-size: var(--about-core-subtext-size);
+    font-weight: 500;
+    color: #0721A0;
+    line-height: 1.3;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .cardText {
+    font-size: var(--about-core-para-size);
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  :global(:root) {
+    --about-core-subtext-size: clamp(1.1rem, 1.5rem, 1.55rem);
+    --about-core-para-size: clamp(0.85rem, 1.125rem, 1.3rem);
+  }
+
+  .valueCard {
+    padding: 1.65rem 1.35rem;
+    border-radius: 22px;
+  }
+
+  .cardIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
