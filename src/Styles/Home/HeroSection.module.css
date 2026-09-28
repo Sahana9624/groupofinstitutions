@@ -34,7 +34,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #FFFFFF 28%, rgba(255, 255, 255, 0.45) 65%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(180deg, #ffffffe7 28%, rgba(255, 255, 255, 0.132) 65%, rgba(255, 255, 255, 0) 100%);
   pointer-events: none;
   z-index: 1;
 }

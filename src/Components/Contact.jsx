@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import styles from "../Styles/Contact.module.css";
 // import successCircleIcon from "../assets/Icons/success-circle.svg";
 import successTickIcon from "../assets/Icons/success-tick.svg";
-import heroImg from "../assets/Images/cta-bg.jpg";
+import heroImg from "../assets/Images/contact-hero.jpg";
 import locationIcon from "../assets/Icons/contact-location.svg";
 import mailIcon from "../assets/Icons/contact-mail.svg";
 import phoneIcon from "../assets/Icons/contact-phn.svg";

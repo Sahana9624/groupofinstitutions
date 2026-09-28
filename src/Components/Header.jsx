@@ -16,7 +16,6 @@ export default function Header() {
   const megaMenuRef = useRef(null);
   const mobileNavRef = useRef(null);
 
-  const [isNavigating, setIsNavigating] = useState(false);
   const hoverTimeoutRef = useRef(null);
 
   const isDropdownActive = isMobileMenuOpen || activeDropdown !== null || hoveredDropdown !== null;
@@ -105,18 +104,16 @@ export default function Header() {
   };
 
   const handleLinkClick = () => {
-    setIsNavigating(true);
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
     setHoveredDropdown(null);
-    setTimeout(() => setIsNavigating(false), 100);
   };
 
   return (
     <header className={styles.header}>
       {/* BLACK SHADOW BACKDROP OVERLAY COVERING SCREEN BELOW HEADER */}
       <div
-        className={`${styles.dropdownBackdrop} ${(isDropdownActive && !isNavigating) ? styles.dropdownBackdropActive : ''}`}
+        className={`${styles.dropdownBackdrop} ${isDropdownActive ? styles.dropdownBackdropActive : ''}`}
         onClick={() => {
           setActiveDropdown(null);
           setHoveredDropdown(null);

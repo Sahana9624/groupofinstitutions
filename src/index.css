@@ -12,11 +12,20 @@
   height: 0 !important;
 }
 
+img,
+video,
+svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 html {
   /* Fluid typography: True desktop zoom scaling, clamped between 14px (mobile) and 20px (ultrawide) */
   font-size: clamp(14px, 0.8vw + 6px, 20px);
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
 }
 
 html::-webkit-scrollbar {
@@ -32,6 +41,9 @@ body {
   padding: 0;
   overflow-x: clip;
   font-size: 16px;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  touch-action: pan-x pan-y;
 }
 
 body {

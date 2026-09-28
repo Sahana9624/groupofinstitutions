@@ -45,7 +45,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.1s ease, visibility 0.1s ease;
+  transition: opacity 0s linear, visibility 0s linear;
   display: block;
 }
 
@@ -54,6 +54,7 @@
   visibility: visible !important;
   pointer-events: auto !important;
   user-select: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
 }
 
 /* TOP BAR */
@@ -667,13 +668,14 @@
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
-    transition: opacity 0.15s ease, visibility 0.15s ease !important;
+    transition: opacity 0s linear, visibility 0s linear !important;
   }
 
   .dropdownBackdropActive {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    transition: opacity 0.15s ease, visibility 0.15s ease !important;
   }
 
   .brand {
@@ -778,7 +780,8 @@
 
   .accordionActive {
     background: #F8F9FA;
-    border: 1px solid #E5E7EB;
+    border: none !important;
+    box-shadow: none !important;
     border-radius: 0.75rem;
     padding: 0.25rem;
     margin-bottom: 0.5rem;
@@ -796,7 +799,9 @@
     color: #0721A0;
     font-weight: 600;
     padding: 0.65rem 0.85rem;
-    border-bottom: 1px solid #E5E7EB;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
 
   .navItemAbout:hover .arrowDefault,
@@ -926,8 +931,11 @@
     line-height: 1.45;
     font-weight: 400;
     border-radius: 0.4rem;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     transition: all 0.2s ease !important;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   .megaColLink:hover,

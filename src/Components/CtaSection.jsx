@@ -18,9 +18,12 @@ export default function CtaSection({
   const isContact = location.pathname === "/contact";
   const isNews = location.pathname.toLowerCase().startsWith("/news");
   const isApply = location.pathname === "/apply" || location.pathname === "/admissions";
+  const isPolicy =
+    location.pathname.toLowerCase().includes("policy") ||
+    location.pathname.toLowerCase().includes("terms");
 
   useEffect(() => {
-    if (isNews || isApply) return;
+    if (isNews || isApply || isPolicy) return;
     if (!cardRef.current) return;
 
     const rect = cardRef.current.getBoundingClientRect();
@@ -42,9 +45,9 @@ export default function CtaSection({
 
     observer.observe(cardRef.current);
     return () => observer.disconnect();
-  }, [isNews, isApply]);
+  }, [isNews, isApply, isPolicy]);
 
-  if (isNews || isApply) return null;
+  if (isNews || isApply || isPolicy) return null;
 
   const handleApplyClick = () => {
     if (location.pathname === "/apply" || location.pathname === "/admissions") {
