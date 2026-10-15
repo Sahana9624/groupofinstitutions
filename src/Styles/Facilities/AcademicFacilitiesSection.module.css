@@ -2,7 +2,7 @@
 
 :global(:root) {
   --facility-section-badge-size: clamp(0.75rem, 0.875rem, 1.85rem);
-  --facility-section-title-size: clamp(1.2rem, 1.375rem, 2.5rem);
+  --facility-section-title-size: clamp(1.2rem, 2rem, 2.5rem);
   --facility-section-desc-size: clamp(0.95rem, 1.375rem, 1.45rem);
   --facility-card-title-size: clamp(1.4rem, 1.75rem, 1.85rem);
   --facility-card-p-size: clamp(0.9rem, 1.25rem, 1.3rem);
