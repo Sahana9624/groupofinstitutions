@@ -25,16 +25,23 @@ import volkswagenLogo from "../../assets/Images/placement/Volkswagen.svg";
 export default function PlacementSection() {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isEntered, setIsEntered] = useState(false);
   const headerRef = useRef(null);
 
   useEffect(() => {
+    let timer;
     if (!headerRef.current) return;
 
     const rect = headerRef.current.getBoundingClientRect();
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
     if (rect.top <= windowHeight * 0.9) {
       setIsVisible(true);
-      return;
+      timer = setTimeout(() => {
+        setIsEntered(true);
+      }, 1800);
+      return () => {
+        if (timer) clearTimeout(timer);
+      };
     }
 
     const observer = new IntersectionObserver(
@@ -42,13 +49,19 @@ export default function PlacementSection() {
         if (entry.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
+          timer = setTimeout(() => {
+            setIsEntered(true);
+          }, 1800);
         }
       },
       { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
     );
 
     observer.observe(headerRef.current);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const stats = [
@@ -108,7 +121,7 @@ export default function PlacementSection() {
               className={`${styles.buttonsRow} ${styles.animItem} ${isVisible ? styles.animVisible : ''}`}
               style={{ transitionDelay: isVisible ? '0.30s' : '0s' }}
             >
-              <Link to="/apply" className={styles.applyBtn}>
+              <Link to="/admissions" className={styles.applyBtn}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={styles.btnArrow}>
                   <line x1="7" y1="17" x2="17" y2="7"></line>
                   <polyline points="7 7 17 7 17 17"></polyline>
@@ -138,8 +151,8 @@ export default function PlacementSection() {
                 return (
                   <div
                     key={stat.id}
-                    className={`${styles.statCard} ${isActive ? styles.statCardActive : styles.statCardDefault} ${styles.animItem} ${isVisible ? styles.animVisible : ''}`}
-                    style={{ transitionDelay: isVisible ? `${delay}s` : '0s' }}
+                    className={`${styles.statCard} ${isActive ? styles.statCardActive : styles.statCardDefault} ${styles.animItem} ${isVisible ? styles.animVisible : ''} ${isEntered ? styles.cardEntered : ''}`}
+                    style={{ transitionDelay: isVisible && !isEntered ? `${delay}s` : undefined }}
                     onMouseEnter={() => {
                       if (window.innerWidth > 1024) {
                         setActiveCardIndex(index);

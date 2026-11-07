@@ -3,7 +3,7 @@ import styles from "../../Styles/Facilities/CampusFacilitiesSection.module.css";
 
 // Assets for Mini Mart, Hostel, Transport, Cafe
 import martImg from "../../assets/Images/facilities/mart.jpg";
-import hostelImg from "../../assets/Images/facilities/hostel.jpg";
+import hostelImg from "../../assets/Images/facilities/hostel.webp";
 import busesImg from "../../assets/Images/facilities/bus.jpg";
 import cafeImg from "../../assets/Images/facilities/cafe.jpg";
 

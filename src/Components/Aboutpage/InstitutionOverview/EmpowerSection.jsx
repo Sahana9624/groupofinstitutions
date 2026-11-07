@@ -94,7 +94,7 @@ export default function EmpowerSection() {
             education and technical education to the poor students in this district.
           </p>
 
-          <Link to="/facilities" className={styles.btnPrimary} style={{ marginTop: "1rem" }}>
+          <Link to="/campus-life" className={styles.btnPrimary} style={{ marginTop: "1rem" }}>
             <div className={styles.starIconWrapper}>
               <img src={starWhite} alt="" className={styles.starIconWhite} aria-hidden="true" />
               <img src={starYellow} alt="" className={styles.starIconYellow} aria-hidden="true" />

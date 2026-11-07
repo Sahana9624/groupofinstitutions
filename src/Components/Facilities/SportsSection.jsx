@@ -5,6 +5,7 @@ import physicalEdImg from "../../assets/Images/facilities/game-2.png";
 import sportsImg from "../../assets/Images/facilities/game-3.jpg";
 import lab1Img from "../../assets/Images/facilities/game-4.jpg";
 import lab2Img from "../../assets/Images/facilities/game-5.png";
+import lab3Img from "../../assets/Images/facilities/game-6.jpg";
 import closeIcon from "../../assets/Icons/facility/close-btn.svg";
 
 export default function SportsSection() {
@@ -14,7 +15,11 @@ export default function SportsSection() {
   const sectionRef = useRef(null);
   const navyRef = useRef(null);
 
+  // Mobile: reveal once the section is 30% of the way up the viewport
+  const mobileObserverOptions = { threshold: 0, rootMargin: "0px 0px -30% 0px" };
+
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
     const bannerObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -22,7 +27,7 @@ export default function SportsSection() {
           bannerObserver.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -15% 0px" }
+      isMobile ? mobileObserverOptions : { threshold: 0.1, rootMargin: "0px 0px -15% 0px" }
     );
 
     if (sectionRef.current) {
@@ -33,6 +38,7 @@ export default function SportsSection() {
   }, []);
 
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
     const navyObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -40,7 +46,7 @@ export default function SportsSection() {
           navyObserver.disconnect();
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -10% 0px" }
+      isMobile ? mobileObserverOptions : { threshold: 0.08, rootMargin: "0px 0px -10% 0px" }
     );
 
     if (navyRef.current) {
@@ -53,25 +59,18 @@ export default function SportsSection() {
   useEffect(() => {
     if (!selectedSport) return;
 
-    const handleScrollLock = () => {
-      const isMobile = window.innerWidth <= 768;
-      if (isMobile) {
-        document.documentElement.style.overflow = "hidden";
-        document.body.style.overflow = "hidden";
-      } else {
-        document.documentElement.style.overflow = "";
-        document.body.style.overflow = "";
-      }
-    };
-
-    handleScrollLock();
-
-    window.addEventListener("resize", handleScrollLock);
+    // Compensate for the hidden scrollbar so the page doesn't shift sideways
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
 
     return () => {
       document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
-      window.removeEventListener("resize", handleScrollLock);
+      document.body.style.paddingRight = "";
     };
   }, [selectedSport]);
 
@@ -128,7 +127,7 @@ export default function SportsSection() {
       title: "Play with passion, score with purpose",
       desc: "Multi-purpose indoor court complex for table tennis, badminton, chess, carrom, and multi-gym fitness.",
       fullDesc: "The MTGI Basketball Team combines speed, skill, coordination, and strategic thinking.Students develop their dribbling, passing, shooting, and defensive techniques through dedicated practice.The fast-paced sport strengthens teamwork, agility, concentration, and decision-making.Competitive games help students build confidence, resilience, and leadership skills.Every possession is an opportunity to challenge limits and perform at their best.",
-      image: sportsImg,
+      image: lab3Img,
     }
   ];
 
@@ -193,7 +192,7 @@ export default function SportsSection() {
               >
                 <div
                   className={styles.sportBadge}
-                  style={{ background: sport.badgeGradient }}
+                  // style={{ background: sport.badgeGradient }}
                 >
                   {sport.badgeText}
                 </div>
@@ -246,7 +245,7 @@ export default function SportsSection() {
           >
             <div
               className={styles.modalHeaderBar}
-              style={{ background: selectedSport.badgeGradient }}
+              // style={{ background: selectedSport.badgeGradient }}
             >
               <span>{selectedSport.badgeText}</span>
             </div>

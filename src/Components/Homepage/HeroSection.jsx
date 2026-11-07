@@ -29,6 +29,8 @@ export default function HeroSection() {
         loop
         muted
         playsInline
+        preload="auto"
+        disablePictureInPicture
         className={styles.heroBg}
       />
       <div className={styles.heroOverlay} />
@@ -73,7 +75,7 @@ export default function HeroSection() {
           {/* CTA BUTTONS */}
           <div className={styles.ctaGroup}>
             {/* ADMISSIONS OPEN BUTTON */}
-            <Link to="/apply" className={styles.btnExplore}>
+            <Link to="/admissions" className={styles.btnExplore}>
               <svg
                 width="18"
                 height="18"

@@ -49,11 +49,11 @@ export default function TestimonialsSection() {
 
           {/* AUTHOR ROW */}
           <div className={styles.authorRow}>
-            <img
+            {/* <img
               src={alumniData.avatar}
               alt={alumniData.name}
               className={styles.avatar}
-            />
+            /> */}
             <div className={styles.authorDetails}>
               <h4 className={styles.authorName}>{alumniData.name}</h4>
               <p className={styles.authorYear}>{alumniData.year}</p>

@@ -33,7 +33,7 @@ function App() {
         <ScrollToTop />
         <Header />
         <Link
-          to="/apply"
+          to="/admissions"
           className="global-admissions-tab"
           aria-label="Admissions Open 2026-2027 - Apply Now"
         >
@@ -41,7 +41,6 @@ function App() {
         </Link>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/apply" element={<ApplyPage />} />
           <Route path="/admissions" element={<ApplyPage />} />
           <Route path="/about" element={<InstitutionOverview />} />
           <Route path="/about/overview" element={<InstitutionOverview />} />
@@ -62,10 +61,10 @@ function App() {
           <Route path="/News/:slug" element={<NewsDetail />} />
           {/* <Route path="/Gallery" element={<Gallery />} /> */}
           {/* <Route path="/gallery/:slug" element={<GalleryDetail />} /> */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          {/* <Route path="/privacy-policy" element={<PrivacyPolicy />} /> */}
+          {/* <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/return-refund-policy" element={<ReturnRefundPolicy />} />
-          <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+          <Route path="/cancellation-policy" element={<CancellationPolicy />} /> */}
           {/* <Route path="/course-description" element={<CourseDescription />} /> */}
           {/* <Route path="/course-description/:courseSlug" element={<CourseDescription />} /> */}
         </Routes>

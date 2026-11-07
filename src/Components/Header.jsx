@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "../Styles/Header.module.css";
 import logoImg from "../assets/images/logo.png";
-import heroBgImg from "../assets/images/home-hero.jpg";
+import heroBgImg from "../assets/images/institute.jpeg";
 import headerArrowDefault from "../assets/icons/header-arrow.svg";
 import headerArrowUp from "../assets/icons/header-arrow-up.svg";
 
@@ -237,16 +237,16 @@ export default function Header() {
                     <div className={styles.megaMenuGrid}>
                       {/* COLUMN 1: MTGI TECHNICAL */}
                       <div className={styles.megaColItem}>
-                        <h4 className={styles.megaColTitle}>MTGI TECHNICAL</h4>
+                        <h4 className={styles.megaColTitle}>MTGI COLLEGES</h4>
                         <ul className={styles.megaColList}>
                           <li><a href="https://www.mtcet.in/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Engineering and Technology</a></li>
                           <li><a href="https://www.mtpc.org.in/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Polytechnic College</a></li>
                           <li><a href="https://www.mtcas.in/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Arts and Science</a></li>
-                          <li><a href="https://www.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Hotel Management and Catering Technology</a></li>
-                          <li><a href="https://www.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Physical Education</a></li>
+                          <li><a href="https://catering.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Hotel Management and Catering Technology</a></li>
+                          <li><a href="https://physical.motherterasakalvi.com" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Physical Education</a></li>
                           <li><a href="https://motherteresacoedu.org/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Education</a></li>
                           <li><a href="https://www.motherterasaagricollege.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Agriculture</a></li>
-                          <li><a href="https://www.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Law College</a></li>
+                          <li><a href="https://law.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Law College</a></li>
                         </ul>
                       </div>
 
@@ -257,9 +257,9 @@ export default function Header() {
                           <li><a href="https://nursing.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Nursing</a></li>
                           <li><a href="https://pharmacy.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Pharmacy</a></li>
                           <li><a href="https://www.paramedical.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Institute of Paramedical Science</a></li>
-                          <li><a href="https://www.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Physiotherapy</a></li>
-                          <li><a href="https://www.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Naturopathy and Yoga Medical College</a></li>
-                          <li><a href="https://www.paramedical.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Institute of Paramedical and Allied Health Science</a></li>
+                          <li><a href="https://physiotherapy.motherterasakalvi.com" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa College of Physiotherapy</a></li>
+                          <li><a href="https://yoga.motherterasakalvi.com" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Naturopathy and Yoga Medical College</a></li>
+                          <li><a href="https://allied.motherterasakalvi.com" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Institute of Paramedical and Allied Health Science</a></li>
                         </ul>
                       </div>
 
@@ -267,7 +267,7 @@ export default function Header() {
                       <div className={styles.megaColItem}>
                         <h4 className={styles.megaColTitle}>MTGI SCHOOL</h4>
                         <ul className={styles.megaColList}>
-                          <li><a href="https://www.motherterasakalvi.com/" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Matriculation and Higher Secondary School</a></li>
+                          <li><a href="https://school.motherterasakalvi.com" target="_blank" rel="noopener noreferrer" className={styles.megaColLink} onClick={handleLinkClick}>Mother Terasa Matriculation and Higher Secondary School</a></li>
                         </ul>
                         <div className={styles.campusCard}>
                           <img src={heroBgImg} alt="Mother Terasa Campus" className={styles.campusImg} loading="lazy" decoding="async" />
@@ -289,7 +289,7 @@ export default function Header() {
                   </Link>
                 </div>
                 <div className={`${styles.navItem} ${styles.mobileOnlyNavItem}`}>
-                  <Link to="/apply" className={`${styles['nav__link']} ${location.pathname === '/apply' || location.pathname === '/admissions' ? styles['nav__link--active'] : ''}`} onClick={handleLinkClick}>
+                  <Link to="/admissions" className={`${styles['nav__link']} ${location.pathname === '/admissions' ? styles['nav__link--active'] : ''}`} onClick={handleLinkClick}>
                     <span className={styles.navText}>Admissions</span>
                   </Link>
                 </div>
@@ -298,7 +298,7 @@ export default function Header() {
                     <span className={styles.navText}>Facilities</span>
                   </Link>
                 </div>
-                <div className={styles.navItem}>
+                {/* <div className={styles.navItem}>
                   <Link
                     to="/news"
                     className={`${styles['nav__link']} ${location.pathname.toLowerCase().startsWith('/news') ? styles['nav__link--active'] : ''}`}
@@ -306,7 +306,7 @@ export default function Header() {
                   >
                     <span className={styles.navText}>News and Events</span>
                   </Link>
-                </div>
+                </div> */}
               </div>
 
               {/* MOBILE DRAWER CONTACT US CTA */}

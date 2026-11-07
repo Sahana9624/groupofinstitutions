@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../../../Styles/Aboutpage/FounderAndChairman/LeadershipSection.module.css";
 import founderImg from "../../../assets/Images/about/founder.jpg";
-import chairmanImg from "../../../assets/Images/about/chairman.jpg";
+import chairmanImg from "../../../assets/Images/about/chairman.png";
 
 export default function LeadershipSection() {
   const [founderVisible, setFounderVisible] = useState(false);
@@ -154,7 +154,7 @@ export default function LeadershipSection() {
               className={`${styles.imgCol} ${styles.animItem} ${chairmanVisible ? styles.animVisible : ''}`}
               style={{ transitionDelay: chairmanVisible ? '0.30s' : '0s' }}
             >
-              <div className={styles.photoWrapper}>
+              <div className={`${styles.photoWrapper} ${styles.photoWrapperChairman}`}>
                 <img
                   src={chairmanImg}
                   alt="Mr. R. Uthayakumar B.A. - Chairman"

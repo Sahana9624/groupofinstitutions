@@ -17,6 +17,7 @@ import {
   collegeData,
   fallbackCitiesByState
 } from "../../data/applyFormData";
+import { WEB3FORMS_KEYS, submitToWeb3Forms } from "../../utils/web3forms";
 
 const initialForm = {
   name: "",
@@ -48,6 +49,7 @@ export default function ApplyPage() {
   const [warnings, setWarnings] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const [citiesByState, setCitiesByState] = useState(fallbackCitiesByState);
 
@@ -90,6 +92,7 @@ export default function ApplyPage() {
     const headerEl = reasonsRef.current;
     const cardsEl = cardsGridRef.current;
 
+    // Reveal as soon as the element is a little way into the viewport
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -99,10 +102,11 @@ export default function ApplyPage() {
             } else if (entry.target === cardsEl) {
               setIsCardsVisible(true);
             }
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40% 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
     );
 
     if (headerEl) observer.observe(headerEl);
@@ -155,6 +159,8 @@ export default function ApplyPage() {
 
   const handleClose = () => {
     setSubmitted(false);
+    setTouched(initialTouched);
+    setWarnings({});
   };
 
   const states = Object.keys(citiesByState);
@@ -245,18 +251,38 @@ export default function ApplyPage() {
     formData.city !== "" &&
     formData.agreed;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isValid) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    setSubmitError("");
+    try {
+      await submitToWeb3Forms(WEB3FORMS_KEYS.apply, {
+        subject: `New Admission Application - ${formData.name}`,
+        from_name: "MTGI Website - Apply Form",
+        replyto: formData.email,
+        Name: formData.name,
+        College: formData.college,
+        Mobile: formData.mobile,
+        Email: formData.email,
+        Degree: formData.degree,
+        Program: formData.program,
+        State: formData.state,
+        City: formData.city,
+      });
+      // Blur first so the focused field doesn't re-mark itself as touched
+      document.activeElement?.blur();
       setSubmitted(true);
       setFormData(initialForm);
       setTouched(initialTouched);
       setWarnings({});
+    } catch (err) {
+      console.error("Apply form submission failed:", err);
+      setSubmitError("Something went wrong while submitting. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 800);
+    }
   };
 
   return (
@@ -532,6 +558,7 @@ export default function ApplyPage() {
                   <span className={styles.sendIcon} aria-hidden="true" />
                   <span>{isSubmitting ? "Please wait..." : "Submit Enquiry"}</span>
                 </button>
+                {submitError && <p className={styles.errorText}>{submitError}</p>}
               </form>
             </div>
           </div>
@@ -544,13 +571,13 @@ export default function ApplyPage() {
           <div className={styles.reasonsHeader}>
             <h2
               className={`${styles.reasonsTitle} ${styles.animItem} ${isHeaderVisible ? styles.animVisible : ''}`}
-              style={{ transitionDelay: isHeaderVisible ? '0s' : '0s' }}
+              style={{ '--reveal-delay': '0s' }}
             >
               Reasons to Study <span className={styles.blueTitleText}>@MTGI</span>
             </h2>
             <p
               className={`${styles.reasonsSubtitle} ${styles.animItem} ${isHeaderVisible ? styles.animVisible : ''}`}
-              style={{ transitionDelay: isHeaderVisible ? '0.15s' : '0s' }}
+              style={{ '--reveal-delay': '0.1s' }}
             >
               Join a vibrant learning community that empowers you with knowledge, skills, and opportunities for lifelong success.
             </p>
@@ -560,11 +587,13 @@ export default function ApplyPage() {
             {/* Left Column Image */}
             <div
               className={`${styles.reasonsImageWrapper} ${styles.animCard} ${isCardsVisible ? styles.animCardVisible : ''}`}
-              style={{ transitionDelay: isCardsVisible ? '0s' : '0s' }}
+              style={{ '--reveal-delay': '0s' }}
             >
               <img
                 src={campusStudentsImg}
                 alt="MTGI Students"
+                loading="lazy"
+                decoding="async"
                 className={styles.reasonsImage}
               />
             </div>
@@ -574,7 +603,7 @@ export default function ApplyPage() {
               {/* Feature 1 */}
               <div
                 className={`${styles.featureCard} ${styles.animCard} ${isCardsVisible ? styles.animCardVisible : ''}`}
-                style={{ transitionDelay: isCardsVisible ? '0.25s' : '0s' }}
+                style={{ '--reveal-delay': '0.1s' }}
               >
                 <div className={styles.featureIcon}>
                   <img src={handIcon} alt="Equality in Education" />
@@ -588,7 +617,7 @@ export default function ApplyPage() {
               {/* Feature 2 */}
               <div
                 className={`${styles.featureCard} ${styles.animCard} ${isCardsVisible ? styles.animCardVisible : ''}`}
-                style={{ transitionDelay: isCardsVisible ? '0.5s' : '0s' }}
+                style={{ '--reveal-delay': '0.18s' }}
               >
                 <div className={styles.featureIcon}>
                   <img src={bookIcon} alt="Value-Based Learning" />
@@ -602,7 +631,7 @@ export default function ApplyPage() {
               {/* Feature 3 */}
               <div
                 className={`${styles.featureCard} ${styles.animCard} ${isCardsVisible ? styles.animCardVisible : ''}`}
-                style={{ transitionDelay: isCardsVisible ? '0.75s' : '0s' }}
+                style={{ '--reveal-delay': '0.26s' }}
               >
                 <div className={styles.featureIcon}>
                   <img src={heartIcon} alt="Compassionate Education" />
@@ -616,7 +645,7 @@ export default function ApplyPage() {
               {/* Feature 4 */}
               <div
                 className={`${styles.featureCard} ${styles.animCard} ${isCardsVisible ? styles.animCardVisible : ''}`}
-                style={{ transitionDelay: isCardsVisible ? '1s' : '0s' }}
+                style={{ '--reveal-delay': '0.34s' }}
               >
                 <div className={styles.featureIcon}>
                   <img src={peopleIcon} alt="Inclusive Learning Community" />

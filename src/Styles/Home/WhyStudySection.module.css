@@ -93,7 +93,7 @@
     transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .cardVisible {
@@ -151,6 +151,7 @@ background: linear-gradient(360deg, #0721A0 0%, rgba(255, 255, 255, 0) 70.03%);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  cursor: default;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 3.5rem var(--global-padding-x) 2.5rem var(--global-padding-x);
+  padding: 10rem var(--global-padding-x) 2.5rem var(--global-padding-x);
   box-sizing: border-box;
 }
 

@@ -17,7 +17,7 @@ export default function CtaSection({
   const isPlacement = location.pathname === "/placements";
   const isContact = location.pathname === "/contact";
   const isNews = location.pathname.toLowerCase().startsWith("/news");
-  const isApply = location.pathname === "/apply" || location.pathname === "/admissions";
+  const isApply = location.pathname === "/admissions";
   const isPolicy =
     location.pathname.toLowerCase().includes("policy") ||
     location.pathname.toLowerCase().includes("terms");
@@ -50,7 +50,7 @@ export default function CtaSection({
   if (isNews || isApply || isPolicy) return null;
 
   const handleApplyClick = () => {
-    if (location.pathname === "/apply" || location.pathname === "/admissions") {
+    if (location.pathname === "/admissions") {
       const formCard = document.getElementById("apply-form-card");
       if (formCard) {
         formCard.scrollIntoView({ behavior: "smooth" });
@@ -59,7 +59,7 @@ export default function CtaSection({
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
-    navigate("/apply");
+    navigate("/admissions");
   };
 
   const resolvedBadge =

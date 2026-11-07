@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../../Styles/Aboutpage/InstitutionOverview/HeroSection.module.css";
-import heroBg from "../../../assets/Images/about/about-hero.jpg";
+import heroBg from "../../../assets/Images/about/about-hero.png";
 import yellowArrow from "../../../assets/Icons/campus/arrow-up-right-yellow.svg";
 import CountUpNumber from "../../Common/CountUpNumber";
 

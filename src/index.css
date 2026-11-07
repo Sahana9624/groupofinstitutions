@@ -25,7 +25,7 @@ html {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
   overscroll-behavior-y: none;
-  overscroll-behavior-x: none;
+  overscroll-behavior-x: auto;
 }
 
 html::-webkit-scrollbar {
@@ -42,7 +42,7 @@ body {
   overflow-x: clip;
   font-size: 16px;
   overscroll-behavior-y: none;
-  overscroll-behavior-x: none;
+  overscroll-behavior-x: auto;
   touch-action: pan-x pan-y;
 }
 

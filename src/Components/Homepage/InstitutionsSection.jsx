@@ -43,7 +43,7 @@ export default function InstitutionsSection() {
       name: "Polytechnic College",
       nameColor: "#0C81F3",
       image: poly,
-      link: "https://www.mtpc.org.in/"
+      link: "https://mtpc.org.in/"
     },
     {
       id: "nursing",
@@ -75,7 +75,7 @@ export default function InstitutionsSection() {
       name: "Hotel Management and Catering Technology",
       nameColor: "#D4A017",
       image: Hotel,
-      link: "https://www.motherterasakalvi.com/"
+      link: "https://catering.motherterasakalvi.com/"
     },
     {
       id: "paramedical-science",
@@ -83,7 +83,7 @@ export default function InstitutionsSection() {
       name: "Institute of Paramedical Science",
       nameColor: "#4CB8A5",
       image: paramedical,
-      link: "https://www.paramedical.motherterasakalvi.com/"
+      link: "https://paramedical.motherterasakalvi.com/"
     },
     {
       id: "physical-education",
@@ -91,7 +91,7 @@ export default function InstitutionsSection() {
       name: "College of Physical Education",
       nameColor: "#D10300",
       image: physical,
-      link: "https://www.motherterasakalvi.com/"
+      link: "https://physical.motherterasakalvi.com"
     },
     {
       id: "physiotherapy",
@@ -99,7 +99,7 @@ export default function InstitutionsSection() {
       name: "College of Physiotherapy",
       nameColor: "#122056",
       image: physiotherapy,
-      link: "https://www.motherterasakalvi.com/"
+      link: "https://physiotherapy.motherterasakalvi.com"
     },
     {
       id: "education",
@@ -115,7 +115,7 @@ export default function InstitutionsSection() {
       name: "Naturopathy and Yoga Medical College",
       nameColor: "#017524",
       image: naturopathy,
-      link: "https://www.motherterasakalvi.com/"
+      link: "https://yoga.motherterasakalvi.com"
     },
     {
       id: "school",
@@ -123,7 +123,7 @@ export default function InstitutionsSection() {
       name: "Matriculation and Higher Secondary School",
       nameColor: "#F97316",
       image: school,
-      link: "https://www.motherterasakalvi.com/"
+      link: "https://school.motherterasakalvi.com"
     },
     {
       id: "law",
@@ -131,7 +131,7 @@ export default function InstitutionsSection() {
       name: "Law College",
       nameColor: "#900D1F",
       image: law,
-      link: "https://www.motherterasakalvi.com/"
+      link: "https://law.motherterasakalvi.com"
     },
     {
       id: "allied-health",
@@ -139,7 +139,7 @@ export default function InstitutionsSection() {
       name: "Institute of Paramedical and Allied Health Science",
       nameColor: "#0721A0",
       image: allied,
-      link: "https://www.paramedical.motherterasakalvi.com/",
+      link: "https://allied.motherterasakalvi.com",
       isCentered: true
     }
   ];

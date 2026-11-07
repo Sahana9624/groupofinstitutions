@@ -8,7 +8,7 @@
 }
 
 .section {
-  padding: 1.5rem var(--global-padding-x) 5rem;
+  padding: 1rem var(--global-padding-x);
   background: #ffffff;
   font-family: 'Outfit', sans-serif;
   box-sizing: border-box;

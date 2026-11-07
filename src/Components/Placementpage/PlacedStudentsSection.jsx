@@ -29,11 +29,11 @@ export default function PlacedStudentsSection() {
           </p>
 
           <div className={styles.authorRow}>
-            <img
+            {/* <img
               src={studentAvatar}
               alt="Rahul M."
               className={styles.avatar}
-            />
+            /> */}
             <div className={styles.authorInfo}>
               <h4 className={styles.authorName}>Rahul M., B.E. Computer Science</h4>
               <p className={styles.authorYear}>2023 Passed out</p>

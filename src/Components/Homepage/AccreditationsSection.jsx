@@ -7,24 +7,45 @@ import ugcImg from "../../assets/icons/ugc.png";
 
 export default function AccreditationsSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isEntered, setIsEntered] = useState(false);
   const headerRef = useRef(null);
 
   useEffect(() => {
+    let timer;
+    const rect = headerRef.current?.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    if (rect && rect.top <= windowHeight * 0.9) {
+      setIsVisible(true);
+      timer = setTimeout(() => {
+        setIsEntered(true);
+      }, 1600);
+      return () => {
+        if (timer) clearTimeout(timer);
+      };
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
+          timer = setTimeout(() => {
+            setIsEntered(true);
+          }, 1600);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40% 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -20% 0px" }
     );
 
     if (headerRef.current) {
       observer.observe(headerRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const accreditations = [
@@ -65,14 +86,14 @@ export default function AccreditationsSection() {
         </div>
         <div className={styles.grid}>
           {accreditations.map((item, index) => {
-            // One-by-one sequential row-wise delay
+            // Sequential delay only during entrance animation
             const delay = index * 0.25;
 
             return (
               <div
                 key={item.id}
-                className={`${styles.card} ${isVisible ? styles.cardVisible : ''}`}
-                style={{ transitionDelay: isVisible ? `${delay}s` : '0s' }}
+                className={`${styles.card} ${isVisible ? styles.cardVisible : ''} ${isEntered ? styles.cardEntered : ''}`}
+                style={{ transitionDelay: isVisible && !isEntered ? `${delay}s` : undefined }}
               >
                 <div className={styles.logoWrapper}>
                   <img src={item.icon} alt={item.title} className={styles.cardLogo} />

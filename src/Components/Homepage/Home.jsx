@@ -16,14 +16,14 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <HeroSection />
 
-      {/* 2. ACCREDITATIONS & AFFILIATIONS */}
-      <AccreditationsSection />
-
       {/* 3. MILESTONES / STATS SECTION */}
       <ProgramsSection />
 
       {/* 4. EXPLORE INSTITUTIONS SECTION */}
       <InstitutionsSection />
+
+       {/* 2. ACCREDITATIONS & AFFILIATIONS */}
+      {/* <AccreditationsSection /> */}
 
       {/* 5. WHY STUDY @MTGI SECTION */}
       <WhyStudySection />
